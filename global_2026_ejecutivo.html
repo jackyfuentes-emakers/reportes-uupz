@@ -8,7 +8,7 @@
 :root {
   --bg:#f0f2f7; --white:#fff; --border:#dde1ec; --txt:#1a1d2e; --muted:#6b7280;
   --green:#16a34a; --red:#dc2626; --amber:#d97706; --blue:#2563eb; --purple:#7c3aed;
-  --shein:#e11d48; --amazon:#f97316; --ml:#3483fa; --tiktok:#2d2d2d; --web:#6366f1;
+  --shein:#111827; --amazon:#7C3AED; --ml:#EAB308; --tiktok:#D4C5A9; --web:#DC2626;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;font-size:13px}
@@ -102,19 +102,19 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
   </div>
   <div class="hdr-right">
     <div class="chips">
-      <a href="shein_2026_ejecutivo.html" class="chip" style="color:var(--shein);border-color:#fecdd3;background:#fff1f2;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte SHEIN">
+      <a href="shein_2026_ejecutivo.html" class="chip" style="color:var(--shein);border-color:#4b5563;background:#f3f4f6;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte SHEIN">
         <svg style="fill:var(--shein)"><circle cx="3.5" cy="3.5" r="3.5"/></svg>SHEIN ✓
       </a>
-      <a href="amazon_2026_ejecutivo.html" class="chip" style="color:var(--amazon);border-color:#fed7aa;background:#fff7ed;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte Amazon">
+      <a href="amazon_2026_ejecutivo.html" class="chip" style="color:var(--amazon);border-color:#c4b5fd;background:#f5f3ff;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte Amazon">
         <svg style="fill:var(--amazon)"><circle cx="3.5" cy="3.5" r="3.5"/></svg>Amazon ✓
       </a>
-      <a href="ml_2026_ejecutivo.html" class="chip" style="color:var(--ml);border-color:#bfdbfe;background:#eff6ff;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte Mercado Libre">
+      <a href="ml_2026_ejecutivo.html" class="chip" style="color:var(--ml);border-color:#fde047;background:#fefce8;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte Mercado Libre">
         <svg style="fill:var(--ml)"><circle cx="3.5" cy="3.5" r="3.5"/></svg>ML ✓
       </a>
-      <a href="tiktok_2026_ejecutivo.html" class="chip" style="color:var(--tiktok);border-color:#d4d4d8;background:#f5f5f5;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte TikTok">
+      <a href="tiktok_2026_ejecutivo.html" class="chip" style="color:var(--tiktok);border-color:#D4C5A9;background:#faf7f2;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte TikTok">
         <svg style="fill:var(--tiktok)"><circle cx="3.5" cy="3.5" r="3.5"/></svg>TikTok ✓
       </a>
-      <a href="web_2026_ejecutivo.html" class="chip" style="color:var(--web);border-color:#c7d2fe;background:#eef2ff;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte WEB">
+      <a href="web_2026_ejecutivo.html" class="chip" style="color:var(--web);border-color:#fca5a5;background:#fff1f2;text-decoration:none;cursor:pointer;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte WEB">
         <svg style="fill:var(--web)"><circle cx="3.5" cy="3.5" r="3.5"/></svg>WEB ✓
       </a>
     </div>
@@ -327,7 +327,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
     <span class="ct-dot" style="background:var(--purple)"></span>Total vasos por semana — Red UUPZ (SHEIN · Amazon · ML · WEB)
     <div class="legend" style="margin-left:auto;display:flex;gap:14px">
       <div class="leg-item"><div style="width:28px;height:3px;background:#3b82f6;border-radius:2px;display:inline-block;vertical-align:middle;margin-right:4px"></div>2025</div>
-      <div class="leg-item"><div style="width:28px;height:3px;background:#f97316;border-radius:2px;display:inline-block;vertical-align:middle;margin-right:4px"></div>2026 (hasta SEM 23)</div>
+      <div class="leg-item"><div style="width:28px;height:3px;background:#7C3AED;border-radius:2px;display:inline-block;vertical-align:middle;margin-right:4px"></div>2026 (hasta SEM 23)</div>
     </div>
   </div>
   <canvas id="cTendencia" style="width:100%"></canvas>
@@ -340,19 +340,19 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 // ║               DATA                       ║
 // ╚══════════════════════════════════════════╝
 const PLAT = [
-  { id:'shein',  label:'SHEIN',         color:'#e11d48', active:true,
+  { id:'shein',  label:'SHEIN',         color:'#111827', active:true,
     pedidos:13398, vasos:189250, neto:2411810, pvNeto:12.75, yoy:9.0,    momMayo:-78.1,
     vasos2025:[22030,50440,101170],  vasos2026:[71060,96960,21230] },
-  { id:'amazon', label:'Amazon',        color:'#f97316', active:true,
+  { id:'amazon', label:'Amazon',        color:'#7C3AED', active:true,
     pedidos:1345,  vasos:27630,  neto:361953,  pvNeto:13.10, yoy:-43.5,  momMayo:-68.9,
     vasos2025:[14840,16380,17705], vasos2026:[11700,12150,3780] },
-  { id:'ml',     label:'Mercado Libre', color:'#3483fa', active:true,
+  { id:'ml',     label:'Mercado Libre', color:'#EAB308', active:true,
     pedidos:4552,  vasos:223283, neto:2125653, pvNeto:9.52,  yoy:-4.7,   momMayo:-85.8,
     vasos2025:[66344,75229,92821], vasos2026:[89470,117168,16645] },
-  { id:'tiktok', label:'TikTok',        color:'#2d2d2d', active:true,
+  { id:'tiktok', label:'TikTok',        color:'#D4C5A9', active:true,
     pedidos:1868,  vasos:28310,  neto:515079,  pvNeto:18.19, yoy:276.6,  momMayo:-78.7,
     vasos2025:[544,1857,5115],       vasos2026:[13411,12283,2616] },
-  { id:'web',    label:'WEB',           color:'#6366f1', active:true,
+  { id:'web',    label:'WEB',           color:'#DC2626', active:true,
     pedidos:919,   vasos:88705,  neto:1144296, pvNeto:12.90, yoy:-56.9,  momMayo:-67.9,
     vasos2025:[53357,69785,82688], vasos2026:[31885,43031,13789] },
 ];
@@ -767,7 +767,7 @@ drawStackedH('cPartNeto',  ACTIVE.map(p=>({label:p.label, v:p.neto,  color:p.col
   const DATA26_FULL = DATA25.map((_, i) => i < DATA26.length ? DATA26[i] : null);
 
   drawLine(DATA25, '#3b82f6', false);
-  drawLine(DATA26_FULL, '#f97316', false);
+  drawLine(DATA26_FULL, '#7C3AED', false);
 
   // Etiquetas SEM (eje X)
   ctx.fillStyle = '#94a3b8'; ctx.font = '8px system-ui'; ctx.textAlign = 'center';
@@ -788,10 +788,10 @@ drawStackedH('cPartNeto',  ACTIVE.map(p=>({label:p.label, v:p.neto,  color:p.col
 
   // Marker fin de datos 2026
   const lastX = toX(DATA26.length - 1);
-  ctx.strokeStyle = '#f97316'; ctx.lineWidth = 1.5; ctx.setLineDash([4,3]);
+  ctx.strokeStyle = '#7C3AED'; ctx.lineWidth = 1.5; ctx.setLineDash([4,3]);
   ctx.beginPath(); ctx.moveTo(lastX, PAD.t); ctx.lineTo(lastX, PAD.t + cH); ctx.stroke();
   ctx.setLineDash([]);
-  ctx.fillStyle = '#f97316'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'center';
+  ctx.fillStyle = '#7C3AED'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'center';
   ctx.fillText('SEM 23', lastX, PAD.t - 4);
 })();
 </script>
