@@ -40,7 +40,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 /* KPI ROW */
 .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
 .kpi{background:var(--white);border-radius:12px;padding:16px 18px;border:1px solid var(--border);
-  border-top:3px solid #94a3b8;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  border-top:none;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .kpi-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:7px}
 .kpi-v{font-size:26px;font-weight:900;color:var(--txt);line-height:1}
 .kpi-s{font-size:11px;color:var(--muted);margin-top:4px}
@@ -49,7 +49,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 /* DIVIDER */
 .div{display:flex;align-items:center;gap:12px;margin:20px 0 14px}
 .div-l{flex:1;height:1px;background:var(--border)}
-.div-s{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.div-s{font-size:11px;font-weight:700;color:#111827;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
 
 /* CARDS */
 .card{background:var(--white);border-radius:12px;padding:20px;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
@@ -123,8 +123,8 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 </div>
 
 <!-- ═══ RESUMEN MAYO ═══ -->
-<div class="div"><div class="div-l"></div><span class="div-s" style="color:#9333ea">Resumen Junio 2026 · Vasos por plataforma</span><div class="div-l"></div></div>
-<div class="card" style="margin-bottom:18px;border-top:3px solid #9333ea">
+<div class="div"><div class="div-l"></div><span class="div-s" style="color:#111827">Resumen Junio 2026 · Vasos por plataforma</span><div class="div-l"></div></div>
+<div class="card" style="margin-bottom:18px">
   <div class="card-t">Junio 2026 — Total vasos desplazados por canal</div>
   <table class="st">
     <thead>
@@ -141,31 +141,31 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 
 <!-- ═══ KPI CARDS — MAYO 2026 ═══ -->
 <div class="kpi-row">
-  <div class="kpi" style="border-top-color:var(--purple)">
+  <div class="kpi">
     <div class="kpi-l">Pedidos Junio 2026</div>
   <div class="kpi-v">2,252</div>
   <div class="kpi-s">SHEIN 1,422 · Amz 165 · ML 358 · TT 159 · WEB 148</div>
   <div class="kpi-t" style="color:var(--green)">✓ 5 de 5 canales integrados</div>
   </div>
-  <div class="kpi" style="border-top-color:var(--green)">
+  <div class="kpi">
     <div class="kpi-l">Total vasos Junio</div>
   <div class="kpi-v">58,060</div>
   <div class="kpi-s">Junio 2026 · 5 canales (parcial)</div>
   <div class="kpi-t" style="color:var(--muted)">SHEIN 36.6% · ML 28.7% · WEB 23.8% · Amz 6.5% · TT 4.5%</div>
   </div>
-  <div class="kpi" style="border-top-color:var(--blue)">
+  <div class="kpi">
     <div class="kpi-l">Ingresos netos Junio</div>
   <div class="kpi-v">$0.71M</div>
   <div class="kpi-s">~$707,079 MXN</div>
   <div class="kpi-t" style="color:var(--muted)">SHEIN $275K · WEB $178K · ML $158K · TT $47K · Amz $50K</div>
   </div>
-  <div class="kpi" style="border-top-color:var(--amber)">
+  <div class="kpi">
     <div class="kpi-l">$/Vaso neto Junio</div>
   <div class="kpi-v">$12.18</div>
   <div class="kpi-s">Promedio ponderado por volumen</div>
   <div class="kpi-t">TikTok $17.85 · Amz $13.10 · WEB $12.90 · SHEIN $12.93 · ML $9.52</div>
   </div>
-  <div class="kpi" style="border-top-color:var(--shein)">
+  <div class="kpi">
     <div class="kpi-l">Canal líder · Junio 2026</div>
   <div class="kpi-v" style="font-size:22px;color:var(--shein)">SHEIN</div>
   <div class="kpi-s">36.6% del volumen Junio · 21,230 vasos</div>
