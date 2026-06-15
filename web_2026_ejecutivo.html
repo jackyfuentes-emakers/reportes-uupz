@@ -7,7 +7,7 @@
 <style>
 :root {
   --bg:#f0f2f7; --white:#fff; --border:#dde1ec; --txt:#1a1d2e; --muted:#6b7280;
-  --web:#6366f1; --web-l:#eef2ff; --web-m:#c7d2fe;
+  --web:#DC2626; --web-l:#eef2ff; --web-m:#c7d2fe;
   --gray:#94a3b8; --purple:#9333ea; --blue:#2563eb;
   --green:#16a34a; --amber:#d97706; --cyan:#0891b2;
 }
@@ -98,9 +98,9 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 
 canvas{display:block;width:100%!important}
 .mom-up{color:#16a34a;font-size:11px;font-weight:700;text-align:right;white-space:nowrap}
-.mom-dn{color:#e11d48;font-size:11px;font-weight:700;text-align:right;white-space:nowrap}
-.yoy-up{color:#16a34a;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
-.yoy-dn{color:#e11d48;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
+.mom-dn{color:#dc2626;font-size:11px;font-weight:700;text-align:right;white-space:nowrap}
+.yoy-up{color:#16a34a !important;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
+.yoy-dn{color:#dc2626 !important;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
 @media(max-width:1100px){.kpi-row{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.kpi-row,.g2,.g3,.g2b{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.kpi-row,.g2,.g3,.g2b{grid-template-columns:1fr}}
@@ -114,11 +114,11 @@ canvas{display:block;width:100%!important}
   <div class="hdr-icon">🌐</div>
   <div>
     <div class="hdr-title">WEB Shopify — Reporte de Ventas 2026</div>
-    <div class="hdr-sub">Abril · Mayo · Junio 2026 &nbsp;·&nbsp; Semanas 14–23 &nbsp;·&nbsp; Fuente: VENTAS WEB + TT 2026.xlsx</div>
+    <div class="hdr-sub">Abril · Mayo · Junio 2026 &nbsp;·&nbsp; Semanas 14–24 &nbsp;·&nbsp; Fuente: VENTAS WEB + TT 2026.xlsx</div>
   </div>
   <div class="hdr-badges">
-    <span class="badge">Junio 2026</span>     <span class="badge badge-g">148 pedidos</span>
-    <span class="badge badge-g">13,789 vasos</span>
+    <span class="badge">Junio 2026</span>     <span class="badge badge-g">268 pedidos</span>
+    <span class="badge badge-g">23,385 vasos</span>
     <a href="global_2026_ejecutivo.html" style="font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;background:#f8faff;color:#4338ca;border:1.5px solid #c7d2fe;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte global">🌐 Ver Global</a>
   </div>
 </div>
@@ -127,27 +127,27 @@ canvas{display:block;width:100%!important}
 <div class="kpi-row">
   <div class="kpi">
     <div class="kpi-l">Pedidos Junio 2026</div>
-    <div class="kpi-v">148</div>
+    <div class="kpi-v">268</div>
     <div class="kpi-s">Transacciones reales de clientes</div>
-    <div class="kpi-t" style="color:var(--red)">▼ −66.4% vs Mayo</div>
+    <div class="kpi-t" style="color:var(--red)">▼ −39.2% vs Mayo</div>
   </div>
   <div class="kpi" style="border-top-color:var(--web)">
     <div class="kpi-l">Ticket promedio Junio</div>
-    <div class="kpi-v">$1,202</div>
-    <div class="kpi-s">MXN bruto por pedido</div>
-    <div class="kpi-t" style="color:var(--muted)">Abr $1,246 · May $1,259 · Jun $1,202</div>
+    <div class="kpi-v">$1,125</div>
+    <div class="kpi-s">MXN neto por pedido</div>
+    <div class="kpi-t" style="color:var(--muted)">Abr $1,246 · May $1,259 · Jun $1,125</div>
   </div>
   <div class="kpi" style="border-top-color:var(--purple)">
     <div class="kpi-l">Vasos Junio 2026</div>
-    <div class="kpi-v">13,789</div>
+    <div class="kpi-v">23,385</div>
     <div class="kpi-s">Unidades desplazadas en Junio (parcial)</div>
-    <div class="kpi-t" style="color:var(--red)">▼ −67.9% MoM</div>
+    <div class="kpi-t" style="color:var(--red)">▼ −45.7% MoM</div>
   </div>
   <div class="kpi" style="border-top-color:var(--blue)">
     <div class="kpi-l">Ventas Junio (sin IVA)</div>
-    <div class="kpi-v">$178K</div>
+    <div class="kpi-v">$302K</div>
     <div class="kpi-s">MXN neto · comisión 15.21%</div>
-    <div class="kpi-t" style="color:var(--red)">▼ −67.9% vs Mayo $555K</div>
+    <div class="kpi-t" style="color:var(--red)">▼ −45.7% vs Mayo $555K</div>
   </div>
   <div class="kpi" style="border-top-color:var(--amber)">
     <div class="kpi-l">$/Vaso neto Junio</div>
@@ -161,10 +161,10 @@ canvas{display:block;width:100%!important}
 <div class="g2">
   <div class="card">
     <div class="card-t">
-      <span class="ct-dot"></span>Vasos semanales — SEM 14 al SEM 23
+      <span class="ct-dot"></span>Vasos semanales — SEM 14 al SEM 24
       <span style="margin-left:auto;display:flex;gap:10px;font-size:11px">
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#94a3b8;border-radius:2px;display:inline-block"></span>Abril</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#6366f1;border-radius:2px;display:inline-block"></span>Mayo</span>
+        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#DC2626;border-radius:2px;display:inline-block"></span>Mayo</span>
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#9333ea;border-radius:2px;display:inline-block"></span>Junio</span>
       </span>
     </div>
@@ -204,9 +204,9 @@ canvas{display:block;width:100%!important}
       </tr></thead>
       <tbody>
         <tr><td><span class="dot" style="background:#94a3b8"></span>Abril</td><td>330</td><td>$1,246</td><td style="color:var(--muted);font-size:10px">—</td><td>31,885</td><td>$411,317</td><td>$12.90</td></tr>
-        <tr><td><span class="dot" style="background:#6366f1"></span>Mayo</td><td>441</td><td>$1,259</td><td class="mom-up">▲ 35.0%</td><td>43,031</td><td>$555,100</td><td>$12.90</td></tr>
-        <tr><td><span class="dot" style="background:#9333ea"></span>Junio*</td><td>148</td><td>$1,202</td><td class="mom-dn">▼ 67.9%</td><td>13,789</td><td>$177,879</td><td>$12.90</td></tr>
-        <tr class="tr"><td>Total Abr-Jun</td><td>919</td><td>$1,236</td><td></td><td>88,705</td><td>$1,144,296</td><td>$12.90</td></tr>
+        <tr><td><span class="dot" style="background:#DC2626"></span>Mayo</td><td>441</td><td>$1,259</td><td class="mom-up">▲ +35.0%</td><td>43,031</td><td>$555,100</td><td>$12.90</td></tr>
+        <tr><td><span class="dot" style="background:#9333ea"></span>Junio*</td><td>268</td><td>$1,125</td><td class="mom-dn">▼ −45.7%</td><td>23,385</td><td>$301,667</td><td>$12.90</td></tr>
+        <tr class="tr"><td>Total Abr-Jun</td><td>1,039</td><td>$1,221</td><td></td><td>98,301</td><td>$1,268,083</td><td>$12.90</td></tr>
       </tbody>
     </table>
     <p style="font-size:10px;color:var(--muted);margin-top:8px;padding-top:6px;border-top:1px solid #f3f4f6">
@@ -234,8 +234,8 @@ canvas{display:block;width:100%!important}
       <tbody>
         <tr><td><span class="dot" style="background:#94a3b8"></span>Abril</td><td>53,357</td><td>31,885</td><td class="yoy-dn">▼ −40.2%</td></tr>
         <tr><td><span class="dot" style="background:var(--web)"></span>Mayo</td><td>69,785</td><td>43,031</td><td class="yoy-dn">▼ −38.4%</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span>Junio</td><td>82,688</td><td>13,789</td><td class="yoy-dn">▼ −83.3%</td></tr>
-        <tr class="tr"><td>Total Abr–Jun</td><td>205,830</td><td>88,705</td><td class="yoy-dn">▼ −56.9%</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span>Junio</td><td>82,688</td><td>23,385</td><td class="yoy-dn">▼ −71.7%</td></tr>
+        <tr class="tr"><td>Total Abr–Jun</td><td>205,830</td><td>98,301</td><td class="yoy-dn">▼ −52.2%</td></tr>
       </tbody>
     </table>
     <canvas id="cYoy" style="display:block;width:100%"></canvas>
@@ -400,14 +400,14 @@ function drawStackedBar(canvasId, {labels, datasets, height=260}){
 // ══════════════════════════════════════════════════════
 //  DATA
 // ══════════════════════════════════════════════════════
-const SEMS  = ['SEM 14','SEM 15','SEM 16','SEM 17','SEM 18','SEM 19','SEM 20','SEM 21','SEM 22','SEM 23'];
-const SEM_V = [6309,6867,8324,7399,5648,11028,12229,8496,11145,13335];
-const SEM_P = [61,78,87,80,51,121,99,99,122,148];
-const SEM_C = ['#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#6366f1','#6366f1','#6366f1','#6366f1','#9333ea'];
+const SEMS  = ['SEM 14','SEM 15','SEM 16','SEM 17','SEM 18','SEM 19','SEM 20','SEM 21','SEM 22','SEM 23','SEM 24'];
+const SEM_V = [6309,6867,8324,7399,5648,11028,12229,8496,11145,13335,9514];
+const SEM_P = [61,78,87,80,51,121,99,99,122,148,120];
+const SEM_C = ['#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#DC2626','#DC2626','#DC2626','#DC2626','#9333ea','#9333ea'];
 
 const MESES = ['Abril','Mayo','Junio'];
-const MES_V = [31885,43031,13789];
-const MES_C = ['#94a3b8','#6366f1','#9333ea'];
+const MES_V = [31885,43031,23385];
+const MES_C = ['#94a3b8','#DC2626','#9333ea'];
 
 // ── Render semanas
 drawBar('cSem',{labels:SEMS, values:SEM_V, colors:SEM_C, topLabels:SEM_P, min:0, height:260});
@@ -434,7 +434,7 @@ DOW.forEach((d,i)=>{
   const pct = ((d.v/dowTotal)*100).toFixed(1);
   const w   = ((d.v/dowMax)*100).toFixed(1);
   const isWin = d.v === dowMax;
-  const c   = isWin?'#6366f1': d.v>150?'#818cf8':'#c7d2fe';
+  const c   = isWin?'#DC2626': d.v>150?'#DC2626':'#c7d2fe';
   const win = isWin?' 🏆':'';
   dowWrap.innerHTML += `
   <div class="dow-row ${isWin?'dow-win':''}">
@@ -449,14 +449,14 @@ DOW.forEach((d,i)=>{
 //  TOP 5 MODELOS MAYO
 // ══════════════════════════════════════════════════════
 const ALL_MOD = [
-  {nombre:'SUN',      cap:'24OZ', col:'#6366f1', abr:19175, may:29498, jun:9388},
-  {nombre:'SUN',      cap:'16OZ', col:'#818cf8', abr:3687,  may:4562,  jun:1170},
-  {nombre:'STAR',     cap:'16OZ', col:'#4b5563', abr:3267,  may:2705,  jun:810},
-  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1050,  may:1623,  jun:301},
-  {nombre:'SUN SLIM', cap:'12OZ', col:'#a5b4fc', abr:1213,  may:913,   jun:513},
+  {nombre:'SUN',      cap:'24OZ', col:'#DC2626', abr:19175, may:29498, jun:15805},
+  {nombre:'SUN',      cap:'16OZ', col:'#DC2626', abr:3687,  may:4562,  jun:1910},
+  {nombre:'STAR',     cap:'16OZ', col:'#4b5563', abr:3267,  may:2705,  jun:1089},
+  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1050,  may:1623,  jun:929},
+  {nombre:'SUN SLIM', cap:'12OZ', col:'#a5b4fc', abr:1213,  may:913,   jun:1102},
 ];
 
-const MAY_TOTAL = 13789;
+const MAY_TOTAL = 23385;
 const MAY_DOT   = '#9333ea';
 const rankCls   = ['r1','r2','r3','r4','r5'];
 const grid      = document.getElementById('top5Grid');
@@ -506,7 +506,7 @@ drawStackedBar('cModCap', {
     {label:'16OZ', color:'#8b5cf6', values:[11249,1385, 9412, 720,  0,    224]},
     {label:'20OZ', color:'#10b981', values:[0,    267,  67,   224,  0,    0]},
     {label:'24OZ', color:'#f59e0b', values:[64350,0,    0,    0,    0,    441]},
-    {label:'34OZ', color:'#e11d48', values:[0,    0,    0,    0,    3075, 326]},
+    {label:'34OZ', color:'#111827', values:[0,    0,    0,    0,    3075, 326]},
   ],
   height: 260
 });
@@ -527,9 +527,9 @@ drawStackedBar('cModCap', {
 
   const meses   = ['Abril','Mayo','Junio'];
   const v2025   = [53357, 69785, 82688];
-  const v2026   = [31885, 43031, 13789];
+  const v2026   = [31885, 43031, 23385];
   const c2025   = '#cbd5e1';
-  const c2026   = ['#94a3b8','#6366f1','#9333ea'];
+  const c2026   = ['#94a3b8','#DC2626','#9333ea'];
   const padL=42, padR=12, padT=20, padB=40;
   const cW=W-padL-padR, cH=H-padT-padB;
   const nM=meses.length;
@@ -585,7 +585,7 @@ drawStackedBar('cModCap', {
   ctx.fillStyle=c2025; ctx.fillRect(padL,legY,10,10);
   ctx.fillStyle='#374151'; ctx.font='bold 10px -apple-system,sans-serif'; ctx.textAlign='left';
   ctx.fillText('2025', padL+13, legY+9);
-  const leg26=['#94a3b8','#6366f1','#9333ea'];
+  const leg26=['#94a3b8','#DC2626','#9333ea'];
   const leg26L=['Mar','Abr','May'];
   leg26.forEach((c,i)=>{
     const lx=padL+60+i*36;

@@ -7,7 +7,7 @@
 <style>
 :root {
   --bg:#f0f2f7; --white:#fff; --border:#dde1ec; --txt:#1a1d2e; --muted:#6b7280;
-  --pink:#e11d48; --pink-l:#fff0f3; --pink-m:#fecdd3;
+  --pink:#111827; --pink-l:#fff0f3; --pink-m:#fecdd3;
   --gray:#94a3b8; --purple:#9333ea; --blue:#2563eb;
   --green:#16a34a; --amber:#d97706; --cyan:#0891b2;
 }
@@ -98,9 +98,9 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 
 canvas{display:block;width:100%!important}
 .mom-up{color:#16a34a;font-size:11px;font-weight:700;text-align:right;white-space:nowrap}
-.mom-dn{color:#e11d48;font-size:11px;font-weight:700;text-align:right;white-space:nowrap}
-.yoy-up{color:#16a34a;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
-.yoy-dn{color:#e11d48;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
+.mom-dn{color:#dc2626;font-size:11px;font-weight:700;text-align:right;white-space:nowrap}
+.yoy-up{color:#16a34a !important;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
+.yoy-dn{color:#dc2626 !important;font-size:12px;font-weight:800;text-align:right;white-space:nowrap}
 @media(max-width:1100px){.kpi-row{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.kpi-row,.g2,.g3,.g2b{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.kpi-row,.g2,.g3,.g2b{grid-template-columns:1fr}}
@@ -114,11 +114,11 @@ canvas{display:block;width:100%!important}
   <div class="hdr-icon">🛍</div>
   <div>
     <div class="hdr-title">SHEIN — Reporte de Ventas 2026</div>
-    <div class="hdr-sub">Abril · Mayo · Junio 2026 &nbsp;·&nbsp; Semanas 14–23 &nbsp;·&nbsp; Fuente: VENTAS SHEIN 2026.xlsx</div>
+    <div class="hdr-sub">Abril · Mayo · Junio 2026 &nbsp;·&nbsp; Semanas 14–24 &nbsp;·&nbsp; Fuente: VENTAS SHEIN 2026.xlsx</div>
   </div>
   <div class="hdr-badges">
-    <span class="badge">Junio 2026</span>     <span class="badge badge-g">1,422 pedidos</span>
-    <span class="badge badge-g">21,230 vasos</span>
+    <span class="badge">Junio 2026</span>     <span class="badge badge-g">2,876 pedidos</span>
+    <span class="badge badge-g">43,000 vasos</span>
     <a href="global_2026_ejecutivo.html" style="font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;background:#f8faff;color:#4338ca;border:1.5px solid #c7d2fe;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte global">🌐 Ver Global</a>
   </div>
 </div>
@@ -127,31 +127,31 @@ canvas{display:block;width:100%!important}
 <div class="kpi-row">
   <div class="kpi">
     <div class="kpi-l">Pedidos Junio 2026</div>
-    <div class="kpi-v">1,422</div>
+    <div class="kpi-v">2,876</div>
     <div class="kpi-s">Transacciones reales de clientes</div>
-    <div class="kpi-t" style="color:var(--red)">▼ -78.1% vs Mayo</div>
+    <div class="kpi-t" style="color:var(--red)">▼ -58.0% vs Mayo</div>
   </div>
   <div class="kpi" style="border-top-color:var(--pink)">
     <div class="kpi-l">Ticket promedio Junio</div>
     <div class="kpi-v">$193</div>
     <div class="kpi-s">MXN neto por pedido</div>
-    <div class="kpi-t">▲ Junio $193 vs Mayo $181</div>
+    <div class="kpi-t" style="color:var(--muted)">— Junio $193 vs Mayo $181</div>
   </div>
   <div class="kpi" style="border-top-color:var(--purple)">
     <div class="kpi-l">Vasos Junio 2026</div>
-    <div class="kpi-v">21,230</div>
+    <div class="kpi-v">43,000</div>
     <div class="kpi-s">Unidades desplazadas en Junio (parcial)</div>
-    <div class="kpi-t" style="color:var(--red)">▼ -78.1% MoM · ▲ +9.0% YoY</div>
+    <div class="kpi-t" style="color:var(--red)">▼ -55.7% MoM · ▼ -57.5% YoY</div>
   </div>
   <div class="kpi" style="border-top-color:var(--blue)">
     <div class="kpi-l">Ventas Junio (sin IVA)</div>
-    <div class="kpi-v">$0.27M</div>
-    <div class="kpi-s">~$274,525 MXN</div>
-    <div class="kpi-t" style="color:var(--red)">▼ -77.8% vs Mayo</div>
+    <div class="kpi-v">$0.56M</div>
+    <div class="kpi-s">~$556,430 MXN</div>
+    <div class="kpi-t" style="color:var(--red)">▼ -54.9% vs Mayo</div>
   </div>
   <div class="kpi" style="border-top-color:var(--amber)">
     <div class="kpi-l">$/Vaso neto Junio</div>
-    <div class="kpi-v">$12.93</div>
+    <div class="kpi-v">$12.94</div>
     <div class="kpi-s">MXN por unidad · post-comisión SHEIN</div>
     <div class="kpi-t" style="color:var(--muted)">— Estable los 3 meses</div>
   </div>
@@ -161,10 +161,10 @@ canvas{display:block;width:100%!important}
 <div class="g2">
   <div class="card">
     <div class="card-t">
-      <span class="ct-dot"></span>Vasos semanales — SEM 14 al SEM 23
+      <span class="ct-dot"></span>Vasos semanales — SEM 14 al SEM 24
       <span style="margin-left:auto;display:flex;gap:10px;font-size:11px">
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#94a3b8;border-radius:2px;display:inline-block"></span>Abril</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#e11d48;border-radius:2px;display:inline-block"></span>Mayo</span>
+        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#111827;border-radius:2px;display:inline-block"></span>Mayo</span>
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#9333ea;border-radius:2px;display:inline-block"></span>Junio</span>
       </span>
     </div>
@@ -176,7 +176,7 @@ canvas{display:block;width:100%!important}
       <div style="font-size:30px;font-weight:900;color:var(--pink)">DOM</div>
       <div>
         <div style="font-size:13px;font-weight:700">Mejor día de venta</div>
-        <div style="font-size:11px;color:var(--muted)">2,390 pedidos · 15.97% del total</div>
+        <div style="font-size:11px;color:var(--muted)">2,268 pedidos · 15.28% del total</div>
       </div>
     </div>
     <div id="dowWrap"></div>
@@ -188,7 +188,7 @@ canvas{display:block;width:100%!important}
 <div class="top5-grid">
   <div id="top5Grid"></div>
   <div class="card">
-    <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Top 10 colores por capacidad · SEM 19–22 (últimas 4 semanas)</div>
+    <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Top 10 colores por capacidad · SEM 21–24 (últimas 4 semanas)</div>
     <canvas id="cColores" style="display:block;width:100%"></canvas>
   </div>
 </div>
@@ -204,9 +204,9 @@ canvas{display:block;width:100%!important}
       </tr></thead>
       <tbody>
         <tr><td><span class="dot" style="background:#94a3b8"></span>Abril</td><td>5,136</td><td>$176</td><td style="color:var(--muted);font-size:10px">—</td><td>71,060</td><td>$902,514</td><td>$12.70</td></tr>
-        <tr><td><span class="dot" style="background:var(--pink)"></span>Mayo</td><td>6,840</td><td>$181</td><td class="mom-up">▲ 36.4%</td><td>96,960</td><td>$1,234,771</td><td>$12.73</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span>Junio*</td><td>1,422</td><td>$193</td><td class="mom-dn">▼ 78.1%</td><td>21,230</td><td>$274,525</td><td>$12.93</td></tr>
-        <tr class="tr"><td>Total Abr-Jun</td><td>13,398</td><td>$180</td><td></td><td>189,250</td><td>$2,411,810</td><td>$12.75</td></tr>
+        <tr><td><span class="dot" style="background:var(--pink)"></span>Mayo</td><td>6,840</td><td>$181</td><td class="mom-up">▲ +36.4%</td><td>96,960</td><td>$1,234,771</td><td>$12.73</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span>Junio*</td><td>2,876</td><td>$193</td><td class="mom-dn">▼ −55.7%</td><td>43,000</td><td>$556,430</td><td>$12.94</td></tr>
+        <tr class="tr"><td>Total Abr-Jun</td><td>14,852</td><td>$181</td><td></td><td>211,020</td><td>$2,693,715</td><td>$12.77</td></tr>
       </tbody>
     </table>
   </div>
@@ -231,8 +231,8 @@ canvas{display:block;width:100%!important}
       <tbody>
         <tr><td><span class="dot" style="background:#94a3b8"></span>Abril</td><td>22,030</td><td>71,060</td><td class="yoy-up">▲ +222.5%</td></tr>
         <tr><td><span class="dot" style="background:var(--pink)"></span>Mayo</td><td>50,440</td><td>96,960</td><td class="yoy-up">▲ +92.2%</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span>Junio</td><td>101,170</td><td>21,230</td><td class="yoy-dn">▼ −79.0%</td></tr>
-        <tr class="tr"><td>Total Abr–Jun</td><td>173,640</td><td>189,250</td><td class="yoy-up">▲ +9.0%</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span>Junio</td><td>101,170</td><td>43,000</td><td class="yoy-dn">▼ −57.5%</td></tr>
+        <tr class="tr"><td>Total Abr–Jun</td><td>173,640</td><td>211,020</td><td class="yoy-up">▲ +21.5%</td></tr>
       </tbody>
     </table>
     <canvas id="cYoy" style="display:block;width:100%"></canvas>
@@ -447,14 +447,14 @@ function drawDonut(canvasId, {labels, values, colors, size=220}){
 // ══════════════════════════════════════════════════════
 //  DATA
 // ══════════════════════════════════════════════════════
-const SEMS   = ['SEM 14','SEM 15','SEM 16','SEM 17','SEM 18','SEM 19','SEM 20','SEM 21','SEM 22','SEM 23'];
-const SEM_V  = [15090,15820,18330,16330,22180,20060,18450,19940,25060,22150];
-const SEM_P  = [1105,1147,1327,1174,1580,1399,1343,1434,1738,1479];
-const SEM_C  = ['#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#e11d48','#e11d48','#e11d48','#e11d48','#9333ea'];
+const SEMS   = ['SEM 14','SEM 15','SEM 16','SEM 17','SEM 18','SEM 19','SEM 20','SEM 21','SEM 22','SEM 23','SEM 24'];
+const SEM_V  = [15090,15820,18330,16330,22180,20060,18450,19940,25060,22100,21150];
+const SEM_P  = [1105,1147,1327,1174,1580,1399,1343,1434,1738,1478,1416];
+const SEM_C  = ['#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#111827','#111827','#111827','#111827','#9333ea','#9333ea'];
 
 const MESES  = ['Abril','Mayo','Junio'];
-const MES_V  = [71060,96960,21230];
-const MES_C  = ['#94a3b8','#e11d48','#9333ea'];
+const MES_V  = [71060,96960,43000];
+const MES_C  = ['#94a3b8','#111827','#9333ea'];
 
 // ── Render semanas
 drawBar('cSem',{labels:SEMS, values:SEM_V, colors:SEM_C, topLabels:SEM_P, min:11000, height:260});
@@ -466,8 +466,8 @@ drawBar('cMes',{labels:MESES, values:MES_V, colors:MES_C, min:0, height:180});
 //  DÍA DE SEMANA (HTML, sin canvas)
 // ══════════════════════════════════════════════════════
 const DOW = [
-  {d:'Domingo',v:2636},{d:'Martes',v:2531},{d:'Lunes',v:2490},
-  {d:'Miércoles',v:2413},{d:'Viernes',v:2352},{d:'Sábado',v:2142},{d:'Jueves',v:2111}
+  {d:'Domingo',v:2268},{d:'Miércoles',v:2236},{d:'Martes',v:2186},
+  {d:'Viernes',v:2166},{d:'Sábado',v:2019},{d:'Lunes',v:2019},{d:'Jueves',v:1958}
 ];
 const dowTotal = DOW.reduce((a,b)=>a+b.v,0);
 const dowMax   = DOW[0].v;
@@ -475,7 +475,7 @@ const dowWrap  = document.getElementById('dowWrap');
 DOW.forEach((d,i)=>{
   const pct = ((d.v/dowTotal)*100).toFixed(1);
   const w   = ((d.v/dowMax)*100).toFixed(1);
-  const c   = i===0?'#e11d48': i<3?'#f87171':'#fca5a5';
+  const c   = i===0?'#111827': i<3?'#f87171':'#fca5a5';
   const win = i===0?' 🏆':'';
   dowWrap.innerHTML += `
   <div class="dow-row ${i===0?'dow-win':''}">
@@ -490,20 +490,20 @@ DOW.forEach((d,i)=>{
 //  TOP 5 MODELOS POR MES
 // ══════════════════════════════════════════════════════
 const ALL_MOD = [
-  {nombre:'SUN',      cap:'24OZ', col:'#e11d48', abr:31030, may:44090, jun:9720},
-  {nombre:'SUN',      cap:'16OZ', col:'#f43f5e', abr:2060,  may:2740,  jun:500},
-  {nombre:'SUN SLIM', cap:'16OZ', col:'#9333ea', abr:14490, may:16740, jun:3180},
-  {nombre:'SUN SLIM', cap:'12OZ', col:'#a855f7', abr:12600, may:16730, jun:3980},
-  {nombre:'SUN SLIM', cap:'20OZ', col:'#c084fc', abr:3540,  may:7030,  jun:1960},
-  {nombre:'STAR',     cap:'16OZ', col:'#2563eb', abr:3580,  may:4990,  jun:960},
-  {nombre:'STAR',     cap:'12OZ', col:'#60a5fa', abr:2270,  may:2440,  jun:480},
-  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1040,  may:1730,  jun:410},
-  {nombre:'SATURN',   cap:'12OZ', col:'#0891b2', abr:240,   may:330,   jun:20},
-  {nombre:'SATURN',   cap:'20OZ', col:'#22d3ee', abr:90,    may:130,   jun:20},
+  {nombre:'SUN',      cap:'24OZ', col:'#111827', abr:31030, may:44090, jun:20230},
+  {nombre:'SUN',      cap:'16OZ', col:'#111827', abr:2060,  may:2740,  jun:1020},
+  {nombre:'SUN SLIM', cap:'16OZ', col:'#9333ea', abr:14490, may:16740, jun:6580},
+  {nombre:'SUN SLIM', cap:'12OZ', col:'#a855f7', abr:12600, may:16730, jun:7380},
+  {nombre:'SUN SLIM', cap:'20OZ', col:'#c084fc', abr:3540,  may:7030,  jun:3820},
+  {nombre:'STAR',     cap:'16OZ', col:'#2563eb', abr:3580,  may:4990,  jun:1940},
+  {nombre:'STAR',     cap:'12OZ', col:'#60a5fa', abr:2270,  may:2440,  jun:900},
+  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1040,  may:1730,  jun:930},
+  {nombre:'SATURN',   cap:'12OZ', col:'#0891b2', abr:240,   may:330,   jun:110},
+  {nombre:'SATURN',   cap:'20OZ', col:'#22d3ee', abr:90,    may:130,   jun:80},
 ];
 
 // ── TOP 5 MAYO SOLAMENTE ──────────────────────────────
-const MAY_TOTAL = 21230;
+const MAY_TOTAL = 43000;
 const MAY_DOT   = '#9333ea';
 const rankCls   = ['r1','r2','r3','r4','r5'];
 const grid      = document.getElementById('top5Grid');
@@ -550,16 +550,16 @@ const CAP_COLORS = {
   '16OZ':'#8b5cf6',
   '20OZ':'#10b981',
   '24OZ':'#f59e0b',
-  '34OZ':'#e11d48',
+  '34OZ':'#111827',
 };
 const COLOR_CAP = {
-  labels: ['NG','RS/PST','DR/GTRT','RJ','TSP','MD/PST','AZ/CIE','AZ/PST','BG','TSP/GTR'],
+  labels: ['NG','RS/PST','DR/GTRT','RJ','MD/PST','TSP','TSP/GTR','AZ/CIE','AZ/PST','BG'],
   datasets: [
-    {label:'12OZ', color:CAP_COLORS['12OZ'], values:[2140,2800,   0,1270,   0,1400,   0,2060,2200,   0]},
-    {label:'16OZ', color:CAP_COLORS['16OZ'], values:[2900,1770,   0,1390,3410,1510, 420,1320, 940, 270]},
-    {label:'20OZ', color:CAP_COLORS['20OZ'], values:[3680,1680,   0, 370,   0, 530,   0,   0,   0,   0]},
-    {label:'24OZ', color:CAP_COLORS['24OZ'], values:[2090,3080,6040,2640,1360, 900,3580,   0,   0,2100]},
-    {label:'34OZ', color:CAP_COLORS['34OZ'], values:[   0,   0,   0,   0,   0,   0,   0,   0,   0, 700]},
+    {label:'12OZ', color:CAP_COLORS['12OZ'], values:[1980,2880,   0,1360,1340,   0,   0,   0,2080,2320]},
+    {label:'16OZ', color:CAP_COLORS['16OZ'], values:[3170,1270,   0,1120,1480,3260, 220, 480,1270,1030]},
+    {label:'20OZ', color:CAP_COLORS['20OZ'], values:[3950,1710,   0, 580, 630,   0,   0,   0,   0,   0]},
+    {label:'24OZ', color:CAP_COLORS['24OZ'], values:[2420,3340,5920,2660,1100,1230,2920,3400,   0,   0]},
+    {label:'34OZ', color:CAP_COLORS['34OZ'], values:[   0,   0,   0,   0,   0,   0, 830,   0,   0,   0]},
   ]
 };
 
@@ -583,7 +583,7 @@ drawStackedBar('cColores', {
 
   const meses   = ['Abril','Mayo','Junio'];
   const v2025   = [22030, 50440, 101170];
-  const v2026   = [71060, 96960, 21230];
+  const v2026   = [71060, 96960, 43000];
   const c2025   = '#cbd5e1';
   const c2026   = '#9333ea';
   const padL=42, padR=12, padT=20, padB=40;
