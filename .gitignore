@@ -1,0 +1,16 @@
+# ── Datos fuente y archivos de trabajo — NO se publican ──
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+*.docx
+*.pdf
+.DS_Store
+
+# Memoria y documentación local de Claude
+memory/
+CLAUDE.md
+
+# Scripts de publicación (locales, no van al sitio)
+publicar.sh
+PUBLICAR.command
