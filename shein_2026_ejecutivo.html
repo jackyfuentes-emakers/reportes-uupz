@@ -184,7 +184,7 @@ canvas{display:block;width:100%!important}
 </div>
 
 <!-- TOP 5 MODELOS + COLORES -->
-<div class="div"><div class="div-l"></div><span class="div-s">Top 5 modelos · Junio 2026 &nbsp;&amp;&nbsp; Colores últimas 4 semanas</span><div class="div-l"></div></div>
+<div class="div"><div class="div-l"></div><span class="div-s">Top 5 modelos · Julio 2026 (parcial) &nbsp;&amp;&nbsp; Colores últimas 4 semanas</span><div class="div-l"></div></div>
 <div class="top5-grid">
   <div id="top5Grid"></div>
   <div class="card">
@@ -490,25 +490,25 @@ DOW.forEach((d,i)=>{
 //  TOP 5 MODELOS POR MES
 // ══════════════════════════════════════════════════════
 const ALL_MOD = [
-  {nombre:'SUN',      cap:'24OZ', col:'#111827', abr:31030, may:44090, jun:39760},
-  {nombre:'SUN',      cap:'16OZ', col:'#111827', abr:2060,  may:2740,  jun:2070},
-  {nombre:'SUN SLIM', cap:'16OZ', col:'#9333ea', abr:14490, may:16740, jun:12970},
-  {nombre:'SUN SLIM', cap:'12OZ', col:'#a855f7', abr:12600, may:16730, jun:14710},
-  {nombre:'SUN SLIM', cap:'20OZ', col:'#c084fc', abr:3540,  may:7030,  jun:7090},
-  {nombre:'STAR',     cap:'16OZ', col:'#2563eb', abr:3580,  may:4990,  jun:3960},
-  {nombre:'STAR',     cap:'12OZ', col:'#60a5fa', abr:2270,  may:2440,  jun:1630},
-  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1040,  may:1730,  jun:2060},
-  {nombre:'SATURN',   cap:'12OZ', col:'#0891b2', abr:240,   may:330,   jun:160},
-  {nombre:'SATURN',   cap:'20OZ', col:'#22d3ee', abr:90,    may:130,   jun:140},
+  {nombre:'SUN',      cap:'24OZ', col:'#111827', abr:31030, may:44090, jun:39760, jul:6230},
+  {nombre:'SUN',      cap:'16OZ', col:'#111827', abr:2060,  may:2740,  jun:2070,  jul:180},
+  {nombre:'SUN SLIM', cap:'16OZ', col:'#9333ea', abr:14490, may:16740, jun:12970, jul:2710},
+  {nombre:'SUN SLIM', cap:'12OZ', col:'#a855f7', abr:12600, may:16730, jun:14710, jul:2320},
+  {nombre:'SUN SLIM', cap:'20OZ', col:'#c084fc', abr:3540,  may:7030,  jun:7090,  jul:460},
+  {nombre:'STAR',     cap:'16OZ', col:'#2563eb', abr:3580,  may:4990,  jun:3960,  jul:320},
+  {nombre:'STAR',     cap:'12OZ', col:'#60a5fa', abr:2270,  may:2440,  jun:1630,  jul:210},
+  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1040,  may:1730,  jun:2060,  jul:200},
+  {nombre:'SATURN',   cap:'12OZ', col:'#0891b2', abr:240,   may:330,   jun:160,   jul:30},
+  {nombre:'SATURN',   cap:'20OZ', col:'#22d3ee', abr:90,    may:130,   jun:140,   jul:10},
 ];
 
-// ── TOP 5 MAYO SOLAMENTE ──────────────────────────────
-const MAY_TOTAL = 84910;
-const MAY_DOT   = '#111827';
+// ── TOP 5 JULIO (parcial) SOLAMENTE ───────────────────
+const MAY_TOTAL = 12720;
+const MAY_DOT   = '#9333ea';
 const rankCls   = ['r1','r2','r3','r4','r5'];
 const grid      = document.getElementById('top5Grid');
 
-const sorted5 = [...ALL_MOD].sort((a,b) => b.jun - a.jun).slice(0,5);
+const sorted5 = [...ALL_MOD].sort((a,b) => b.jul - a.jul).slice(0,5);
 const maxV5   = sorted5[0].may;
 let rows5 = '';
 sorted5.forEach((m, i) => {
@@ -537,7 +537,7 @@ grid.innerHTML = `
 <div class="top5-card" style="height:100%">
   <div class="top5-hdr" style="border-bottom:3px solid ${MAY_DOT}">
     <span style="width:10px;height:10px;border-radius:50%;background:${MAY_DOT};display:inline-block"></span>
-    <span class="top5-mes">Junio 2026</span>
+    <span class="top5-mes">Julio 2026 (parcial)</span>
     <span class="top5-total">${MAY_TOTAL.toLocaleString('es-MX')} vasos totales</span>
   </div>
   ${rows5}

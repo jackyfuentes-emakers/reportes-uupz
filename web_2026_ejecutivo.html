@@ -184,7 +184,7 @@ canvas{display:block;width:100%!important}
 </div>
 
 <!-- TOP 5 MODELOS + MODELO×CAPACIDAD -->
-<div class="div"><div class="div-l"></div><span class="div-s">Top 5 modelos · Junio 2026 &nbsp;&amp;&nbsp; Modelo por capacidad</span><div class="div-l"></div></div>
+<div class="div"><div class="div-l"></div><span class="div-s">Top 5 modelos · Julio 2026 (parcial) &nbsp;&amp;&nbsp; Modelo por capacidad</span><div class="div-l"></div></div>
 <div class="top5-grid">
   <div id="top5Grid"></div>
   <div class="card">
@@ -449,19 +449,20 @@ DOW.forEach((d,i)=>{
 //  TOP 5 MODELOS MAYO
 // ══════════════════════════════════════════════════════
 const ALL_MOD = [
-  {nombre:'SUN',      cap:'24OZ', col:'#DC2626', abr:19175, may:29498, jun:32760},
-  {nombre:'SUN',      cap:'16OZ', col:'#DC2626', abr:3687,  may:4562,  jun:3605},
-  {nombre:'STAR',     cap:'16OZ', col:'#4b5563', abr:3267,  may:2705,  jun:10073},
-  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1050,  may:1623,  jun:1716},
-  {nombre:'SUN SLIM', cap:'12OZ', col:'#a5b4fc', abr:1213,  may:913,   jun:1910},
+  {nombre:'SUN',      cap:'24OZ', col:'#DC2626', abr:19175, may:29498, jun:32760, jul:4292},
+  {nombre:'SUN',      cap:'16OZ', col:'#DC2626', abr:3687,  may:4562,  jun:3605,  jul:307},
+  {nombre:'STAR',     cap:'16OZ', col:'#4b5563', abr:3267,  may:2705,  jun:10073, jul:236},
+  {nombre:'STELLAR',  cap:'34OZ', col:'#d97706', abr:1050,  may:1623,  jun:1716,  jul:386},
+  {nombre:'SUN SLIM', cap:'12OZ', col:'#a5b4fc', abr:1213,  may:913,   jun:1910,  jul:271},
+  {nombre:'SATURN',   cap:'16OZ', col:'#0891b2', abr:0,     may:0,     jun:0,     jul:252},
 ];
 
-const MAY_TOTAL = 54513;
-const MAY_DOT   = '#DC2626';
+const MAY_TOTAL = 6145;
+const MAY_DOT   = '#9333ea';
 const rankCls   = ['r1','r2','r3','r4','r5'];
 const grid      = document.getElementById('top5Grid');
 
-const sorted5 = [...ALL_MOD].sort((a,b) => b.jun - a.jun).slice(0,5);
+const sorted5 = [...ALL_MOD].sort((a,b) => b.jul - a.jul).slice(0,5);
 const maxV5   = sorted5[0].may;
 let rows5 = '';
 sorted5.forEach((m, i) => {
@@ -490,7 +491,7 @@ grid.innerHTML = `
 <div class="top5-card" style="height:100%">
   <div class="top5-hdr" style="border-bottom:3px solid ${MAY_DOT}">
     <span style="width:10px;height:10px;border-radius:50%;background:${MAY_DOT};display:inline-block"></span>
-    <span class="top5-mes">Junio 2026</span>
+    <span class="top5-mes">Julio 2026 (parcial)</span>
     <span class="top5-total">${MAY_TOTAL.toLocaleString('es-MX')} vasos totales</span>
   </div>
   ${rows5}

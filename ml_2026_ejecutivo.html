@@ -154,7 +154,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 </div>
 
 <!-- TOP 5 + COLORES -->
-<div class="div"><div class="div-l"></div><span class="div-s">Top 5 modelos · Junio 2026 &nbsp;&amp;&nbsp; Colores últimas 4 semanas</span><div class="div-l"></div></div>
+<div class="div"><div class="div-l"></div><span class="div-s">Top 5 modelos · Julio 2026 (parcial) &nbsp;&amp;&nbsp; Colores últimas 4 semanas</span><div class="div-l"></div></div>
 <div class="top5-grid">
   <div id="top5Grid"></div>
   <div class="card">
@@ -276,11 +276,11 @@ const DOW = [
 ];
 
 const TOP5_MAYO = [
-  {rank:1,modelo:'SUN',     cap:'24OZ',vasos:27703,pct:36.5,color:'#f59e0b'},
-  {rank:2,modelo:'STAR',    cap:'16OZ',vasos:22980,pct:30.3,color:'#EAB308'},
-  {rank:3,modelo:'SUN SLIM',cap:'16OZ',vasos:14520,pct:19.1,color:'#10b981'},
-  {rank:4,modelo:'SUN SLIM',cap:'12OZ',vasos:4090, pct:5.4, color:'#8b5cf6'},
-  {rank:5,modelo:'STAR',    cap:'12OZ',vasos:2040, pct:2.7, color:'#111827'},
+  {rank:1,modelo:'SUN',     cap:'24OZ',vasos:5040,pct:33.9,color:'#f59e0b'},
+  {rank:2,modelo:'SUN SLIM',cap:'16OZ',vasos:4630,pct:31.1,color:'#EAB308'},
+  {rank:3,modelo:'STAR',    cap:'16OZ',vasos:3289,pct:22.1,color:'#10b981'},
+  {rank:4,modelo:'SATURN',  cap:'16OZ',vasos:585, pct:3.9, color:'#8b5cf6'},
+  {rank:5,modelo:'SUN SLIM',cap:'12OZ',vasos:422, pct:2.8, color:'#111827'},
 ];
 
 const COLOR_CAP = {
@@ -380,7 +380,7 @@ const MES_VASOS = [117168, 82831, 14866];
   grid.innerHTML = `
     <div class="top5-card">
       <div class="top5-hdr" style="background:linear-gradient(135deg,var(--ml) 0%,#2563eb 100%)">
-        <span class="top5-mes" style="color:#fff">Top 5 · Junio 2026</span>
+        <span class="top5-mes" style="color:#fff">Top 5 · Julio 2026 (parcial)</span>
         <span class="top5-total" style="color:rgba(255,255,255,.75)">${total.toLocaleString()} vasos</span>
       </div>
       ${TOP5_MAYO.map((m,i)=>`
