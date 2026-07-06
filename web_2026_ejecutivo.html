@@ -173,10 +173,10 @@ canvas{display:block;width:100%!important}
   <div class="card">
     <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Pedidos por día de la semana</div>
     <div style="background:var(--web-l);border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:12px;border:1px solid var(--web-m)">
-      <div style="font-size:30px;font-weight:900;color:var(--web)">MIÉ</div>
+      <div style="font-size:30px;font-weight:900;color:var(--web)">LUN</div>
       <div>
         <div style="font-size:13px;font-weight:700">Mejor día de venta</div>
-        <div style="font-size:11px;color:var(--muted)">245 pedidos · 19.5% del total</div>
+        <div style="font-size:11px;color:var(--muted)">208 pedidos · 20.0% del total</div>
       </div>
     </div>
     <div id="dowWrap"></div>
@@ -419,13 +419,13 @@ drawBar('cMes',{labels:MESES, values:MES_V, colors:MES_C, min:0, height:180});
 //  DÍA DE SEMANA (HTML, sin canvas)
 // ══════════════════════════════════════════════════════
 const DOW = [
-  {d:'Lunes',      v:229},
-  {d:'Martes',     v:219},
-  {d:'Miércoles',  v:245},
-  {d:'Jueves',     v:236},
-  {d:'Viernes',    v:151},
-  {d:'Sábado',     v:98},
-  {d:'Domingo',    v:78},
+  {d:'Lunes',      v:208},
+  {d:'Martes',     v:179},
+  {d:'Miércoles',  v:187},
+  {d:'Jueves',     v:182},
+  {d:'Viernes',    v:135},
+  {d:'Sábado',     v:89},
+  {d:'Domingo',    v:59},
 ];
 const dowTotal = DOW.reduce((a,b)=>a+b.v,0);
 const dowMax   = Math.max(...DOW.map(d=>d.v));

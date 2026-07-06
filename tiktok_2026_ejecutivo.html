@@ -176,7 +176,7 @@ canvas{display:block;width:100%!important}
       <div style="font-size:30px;font-weight:900;color:var(--tt)">LUN</div>
       <div>
         <div style="font-size:13px;font-weight:700">Mejor día de venta</div>
-        <div style="font-size:11px;color:var(--muted)">489 pedidos · 18.5% del total</div>
+        <div style="font-size:11px;color:var(--muted)">394 pedidos · 18.1% del total</div>
       </div>
     </div>
     <div id="dowWrap"></div>
@@ -427,8 +427,8 @@ drawBar('cMes',{labels:MESES, values:MES_V, colors:MES_C, min:0, height:180});
 //  DÍA DE SEMANA (HTML, sin canvas)
 // ══════════════════════════════════════════════════════
 const DOW = [
-  {d:'Lunes',   v:489},{d:'Miércoles',v:461},{d:'Martes',   v:436},
-  {d:'Jueves',  v:419},{d:'Viernes',  v:385},{d:'Sábado',   v:244},{d:'Domingo', v:213}
+  {d:'Lunes',   v:394},{d:'Jueves',v:378},{d:'Martes',   v:368},
+  {d:'Miércoles',  v:347},{d:'Viernes',  v:297},{d:'Sábado',   v:212},{d:'Domingo', v:181}
 ];
 const dowTotal = DOW.reduce((a,b)=>a+b.v,0);
 const dowMax   = DOW[0].v;
