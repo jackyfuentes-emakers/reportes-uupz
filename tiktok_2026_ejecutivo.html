@@ -234,7 +234,7 @@ canvas{display:block;width:100%!important}
       <tbody>
         <tr><td><span class="dot" style="background:#94a3b8"></span>Mayo</td><td>1,857</td><td>12,283</td><td class="yoy-up">▲ +561.4%</td></tr>
         <tr><td><span class="dot" style="background:#D4C5A9"></span>Junio</td><td>5,115</td><td>16,571</td><td class="yoy-up">▲ +223.9%</td></tr>
-        <tr><td><span class="dot" style="background:#9333ea"></span>Julio</td><td>—</td><td>5,219</td><td style="color:var(--muted);font-size:10px">sin dato 2025</td></tr>
+        <tr><td><span class="dot" style="background:#9333ea"></span>Julio</td><td>6,868</td><td>5,219</td><td class="yoy-dn" style="color:#dc2626">▼ −24.0% (parcial)</td></tr>
         </tbody>
     </table>
     <canvas id="cYoy" style="display:block;width:100%"></canvas>
@@ -542,11 +542,11 @@ drawStackedBar('cModCap', {
   const ctx=canvas.getContext('2d');
   ctx.scale(dpr,dpr);
 
-  const meses   = ['Mayo','Junio'];
-  const v2025   = [1857, 5115];
-  const v2026   = [12283, 16571];
+  const meses   = ['Mayo','Junio','Julio'];
+  const v2025   = [1857, 5115, 6868];
+  const v2026   = [12283, 16571, 5219];
   const c2025   = '#cbd5e1';
-  const c2026   = ['#94a3b8','#D4C5A9'];
+  const c2026   = ['#94a3b8','#D4C5A9','#9333ea'];
   const padL=42, padR=12, padT=20, padB=40;
   const cW=W-padL-padR, cH=H-padT-padB;
   const nM=meses.length;
@@ -600,8 +600,8 @@ drawStackedBar('cModCap', {
   ctx.fillStyle='#374151'; ctx.font='bold 10px -apple-system,sans-serif'; ctx.textAlign='left';
   ctx.fillText('2025', padL+13, legY+9);
   // Legend 2026 (3 month colors)
-  const leg26=['#94a3b8','#D4C5A9'];
-  const leg26L=['May','Jun'];
+  const leg26=['#94a3b8','#D4C5A9','#9333ea'];
+  const leg26L=['May','Jun','Jul'];
   leg26.forEach((c,i)=>{
     const lx=padL+60+i*36;
     ctx.fillStyle=c; ctx.fillRect(lx,legY,10,10);

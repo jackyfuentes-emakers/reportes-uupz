@@ -234,7 +234,7 @@ canvas{display:block;width:100%!important}
       <tbody>
         <tr><td><span class="dot" style="background:#94a3b8"></span>Mayo</td><td>69,785</td><td>43,031</td><td class="yoy-dn">▼ −38.4%</td></tr>
         <tr><td><span class="dot" style="background:var(--web)"></span>Junio</td><td>82,688</td><td>54,519</td><td class="yoy-dn">▼ −34.1%</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span>Julio</td><td>—</td><td>6,041</td><td style="color:var(--muted);font-size:10px">sin dato 2025</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span>Julio</td><td>53,314</td><td>6,041</td><td class="yoy-dn">▼ −88.7% (parcial)</td></tr>
         <tr class="tr"><td>Total May–Jun</td><td>152,473</td><td>97,550</td><td class="yoy-dn">▼ −36.0%</td></tr>
       </tbody>
     </table>
@@ -525,11 +525,11 @@ drawStackedBar('cModCap', {
   const ctx=canvas.getContext('2d');
   ctx.scale(dpr,dpr);
 
-  const meses   = ['Mayo','Junio'];
-  const v2025   = [69785, 82688];
-  const v2026   = [43031, 54519];
+  const meses   = ['Mayo','Junio','Julio'];
+  const v2025   = [69785, 82688, 53314];
+  const v2026   = [43031, 54519, 6041];
   const c2025   = '#cbd5e1';
-  const c2026   = ['#94a3b8','#DC2626'];
+  const c2026   = ['#94a3b8','#DC2626','#9333ea'];
   const padL=42, padR=12, padT=20, padB=40;
   const cW=W-padL-padR, cH=H-padT-padB;
   const nM=meses.length;
@@ -585,8 +585,8 @@ drawStackedBar('cModCap', {
   ctx.fillStyle=c2025; ctx.fillRect(padL,legY,10,10);
   ctx.fillStyle='#374151'; ctx.font='bold 10px -apple-system,sans-serif'; ctx.textAlign='left';
   ctx.fillText('2025', padL+13, legY+9);
-  const leg26=['#94a3b8','#DC2626'];
-  const leg26L=['May','Jun'];
+  const leg26=['#94a3b8','#DC2626','#9333ea'];
+  const leg26L=['May','Jun','Jul'];
   leg26.forEach((c,i)=>{
     const lx=padL+60+i*36;
     ctx.fillStyle=c; ctx.fillRect(lx,legY,10,10);

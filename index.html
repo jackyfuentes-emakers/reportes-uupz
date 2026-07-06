@@ -129,7 +129,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
     <thead>
       <tr>
         <th>Plataforma</th>
-        <th style="text-align:right">Vasos Junio</th>
+        <th style="text-align:right">Vasos Julio</th>
         <th style="text-align:right">% del total</th>
         <th style="text-align:right">YoY</th>
       </tr>
@@ -350,10 +350,10 @@ const PLAT = [
     vasos2025:[75229,92821], vasos2026:[117168,82831,14866] },
   { id:'tiktok', label:'TikTok',        color:'#D4C5A9', active:true,
     pedidos:2177,  vasos:34073,  neto:608606,  pvNeto:17.86, yoy:313.8,  momMayo:-68.5,
-    vasos2025:[1857,5115],       vasos2026:[12283,16571,5219] },
+    vasos2025:[1857,5115,6868],       vasos2026:[12283,16571,5219] },
   { id:'web',    label:'WEB',           color:'#DC2626', active:true,
     pedidos:1039,  vasos:103591, neto:1305256, pvNeto:12.60,  yoy:-36.0,  momMayo:-88.9,
-    vasos2025:[69785,82688], vasos2026:[43031,54519,6041] },
+    vasos2025:[69785,82688,53314], vasos2026:[43031,54519,6041] },
 ];
 const ACTIVE = PLAT.filter(p=>p.active);
 const MESES_S = ['May','Jun','Jul'];
@@ -521,7 +521,7 @@ drawStackedH('cPartNeto',  ACTIVE.map(p=>({label:p.label, v:p.neto,  color:p.col
   const PAD = {t:28, l:54, r:16, b:44};
   const cW = w-PAD.l-PAD.r, cH = h-PAD.t-PAD.b;
   const nP = ACTIVE.length;    // active platforms
-  const nM = MESES_YOY.length; // Mayo-Junio (Julio aún sin comparable 2025)
+  const nM = Math.max(...ACTIVE.map(p=>p.vasos2025.length)); // TikTok/WEB ya tienen Julio; el resto solo Mayo-Junio
   const platW = cW / nP;
   const bW = Math.min(platW*0.14, 18);
   const allV = ACTIVE.flatMap(p=>[...p.vasos2025,...p.vasos2026]);
@@ -538,10 +538,12 @@ drawStackedH('cPartNeto',  ACTIVE.map(p=>({label:p.label, v:p.neto,  color:p.col
 
   ACTIVE.forEach((p, pi)=>{
     const pX = PAD.l + (pi+0.5)*platW;
-    const mW = nM*(bW*2+2)+(nM-1)*4;
+    const platMeses = p.vasos2025.length === 3 ? ['May','Jun','Jul'] : MESES_YOY;
+    const nMp = platMeses.length;
+    const mW = nMp*(bW*2+2)+(nMp-1)*4;
     const startX = pX - mW/2;
 
-    MESES_YOY.forEach((m, mi)=>{
+    platMeses.forEach((m, mi)=>{
       const v25 = p.vasos2025[mi];
       const v26 = p.vasos2026[mi];
       const mx = startX + mi*(bW*2+6);
@@ -562,9 +564,9 @@ drawStackedH('cPartNeto',  ACTIVE.map(p=>({label:p.label, v:p.neto,  color:p.col
     ctx.fillStyle=p.color; ctx.font='bold 11px sans-serif'; ctx.textAlign='center';
     ctx.fillText(p.label, pX, h-8);
 
-    // YoY badge (Mayo+Junio — únicos meses con comparable 2025)
+    // YoY badge (usa los meses con comparable 2025 disponibles para cada canal)
     const tot25=p.vasos2025.reduce((s,v)=>s+v,0);
-    const tot26=p.vasos2026[0]+p.vasos2026[1];
+    const tot26=p.vasos2026.slice(0,p.vasos2025.length).reduce((s,v)=>s+v,0);
     const pct=((tot26-tot25)/tot25*100).toFixed(1);
     const isUp = pct > 0;
     ctx.fillStyle = isUp?'#15803d':'#b91c1c';
