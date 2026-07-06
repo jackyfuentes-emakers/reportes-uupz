@@ -93,7 +93,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
   <div class="hdr-badges">
     <span class="badge">SEM 19–27</span>     <span class="badge">May–Jul 2026</span>
     <span class="badge-g badge">2 cuentas activas</span>
-    <span class="badge" style="background:#dcfce7;color:#15803d;border-color:#bbf7d0">▲ +19.0% YoY (May-Jun)</span>
+    <span class="badge" style="background:#dcfce7;color:#15803d;border-color:#bbf7d0">▲ +10.0% YoY (May-Jun)</span>
     <a href="global_2026_ejecutivo.html?v=sem27" style="font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;background:#f8faff;color:#4338ca;border:1.5px solid #c7d2fe;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte global">🌐 Ver Global</a>
   </div>
 </div>
@@ -226,10 +226,10 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
     <table class="st" style="margin-top:4px">
       <thead><tr><th>Mes</th><th>2025</th><th>2026</th><th>Δ Vasos</th><th>YoY %</th></tr></thead>
       <tbody>
-        <tr><td>Mayo</td><td>75,229</td><td>117,168</td><td class="mom-up">+41,939</td><td class="mom-up">▲ +55.7%</td></tr>
-        <tr><td>Junio</td><td>92,821</td><td>82,831</td><td class="mom-dn">−9,990</td><td class="mom-dn">▼ −10.8%</td></tr>
-        <tr><td>Julio</td><td>—</td><td>14,866</td><td style="color:var(--muted);font-size:10px">sin dato 2025</td><td style="color:var(--muted);font-size:10px">—</td></tr>
-        <tr class="tr"><td>Total May–Jun</td><td>168,050</td><td>199,999</td><td class="mom-up">+31,949</td><td class="mom-up">▲ +19.0%</td></tr>
+        <tr><td>Mayo</td><td>83,353</td><td>117,168</td><td class="mom-up">+33,815</td><td class="mom-up">▲ +40.6%</td></tr>
+        <tr><td>Junio</td><td>98,399</td><td>82,831</td><td class="mom-dn">−15,568</td><td class="mom-dn">▼ −15.8%</td></tr>
+        <tr><td>Julio</td><td>61,812</td><td>14,866</td><td class="mom-dn">−46,946</td><td class="mom-dn">▼ −76.0% (parcial)</td></tr>
+        <tr class="tr"><td>Total May–Jun</td><td>181,752</td><td>199,999</td><td class="mom-up">+18,247</td><td class="mom-up">▲ +10.0%</td></tr>
       </tbody>
     </table>
 
@@ -295,9 +295,9 @@ const COLOR_CAP = {
 };
 
 const YOY = {
-  meses: ['Mayo','Junio'],
-  v2025: [75229, 92821],
-  v2026: [117168, 82831],
+  meses: ['Mayo','Junio','Julio'],
+  v2025: [83353, 98399, 61812],
+  v2026: [117168, 82831, 14866],
 };
 
 const MES_VASOS = [117168, 82831, 14866];
@@ -499,7 +499,7 @@ const MES_VASOS = [117168, 82831, 14866];
   const {ctx, w, h} = r;
   const PAD={t:24, l:52, r:14, b:44};
   const cW=w-PAD.l-PAD.r, cH=h-PAD.t-PAD.b;
-  const nM=2;
+  const nM=YOY.meses.length;
   const bW=Math.min(cW/(nM*3), 22);
   const allV=[...YOY.v2025,...YOY.v2026];
   const max=Math.max(...allV)*1.15;
