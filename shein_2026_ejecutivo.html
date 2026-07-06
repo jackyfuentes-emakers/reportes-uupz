@@ -229,10 +229,10 @@ canvas{display:block;width:100%!important}
         <th>Mes</th><th>2025 vasos</th><th>2026 vasos</th><th>Crec. YoY</th>
       </tr></thead>
       <tbody>
-        <tr><td><span class="dot" style="background:#94a3b8"></span>Mayo</td><td>50,440</td><td>96,960</td><td class="yoy-up">▲ +92.2%</td></tr>
-        <tr><td><span class="dot" style="background:var(--pink)"></span>Junio</td><td>101,170</td><td>84,910</td><td class="yoy-dn">▼ −16.1%</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span>Julio</td><td>—</td><td>12,720</td><td style="color:var(--muted);font-size:10px">sin dato 2025</td></tr>
-        <tr class="tr"><td>Total May–Jun</td><td>151,610</td><td>181,870</td><td class="yoy-up">▲ +20.0%</td></tr>
+        <tr><td><span class="dot" style="background:#94a3b8"></span>Mayo</td><td>54,940</td><td>96,960</td><td class="yoy-up">▲ +76.5%</td></tr>
+        <tr><td><span class="dot" style="background:var(--pink)"></span>Junio</td><td>112,920</td><td>84,910</td><td class="yoy-dn">▼ −24.8%</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span>Julio</td><td>150,540</td><td>12,720</td><td class="yoy-dn">▼ −91.6% (parcial)</td></tr>
+        <tr class="tr"><td>Total May–Jun</td><td>167,860</td><td>181,870</td><td class="yoy-up">▲ +8.3%</td></tr>
       </tbody>
     </table>
     <canvas id="cYoy" style="display:block;width:100%"></canvas>
@@ -581,9 +581,9 @@ drawStackedBar('cColores', {
   const ctx=canvas.getContext('2d');
   ctx.scale(dpr,dpr);
 
-  const meses   = ['Mayo','Junio'];
-  const v2025   = [50440, 101170];
-  const v2026   = [96960, 84910];
+  const meses   = ['Mayo','Junio','Julio'];
+  const v2025   = [54940, 112920, 150540];
+  const v2026   = [96960, 84910, 12720];
   const c2025   = '#cbd5e1';
   const c2026   = '#9333ea';
   const padL=42, padR=12, padT=20, padB=40;
