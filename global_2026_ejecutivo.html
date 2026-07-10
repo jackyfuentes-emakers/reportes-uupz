@@ -124,18 +124,18 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 <!-- ═══ RESUMEN MAYO ═══ -->
 <div class="div"><div class="div-l"></div><span class="div-s" style="color:#111827">Resumen Julio 2026 · Vasos por plataforma</span><div class="div-l"></div></div>
 <div class="card" style="margin-bottom:18px">
-  <div class="card-t">Julio 2026 (parcial, al 5 jul) — Total vasos desplazados por canal</div>
   <table class="st">
     <thead>
       <tr>
-        <th>Plataforma</th>
+        <th>Plataforma / Categoría</th>
         <th style="text-align:right">Vasos Julio</th>
         <th style="text-align:right">% del total</th>
-        <th style="text-align:right">YoY</th>
+        <th style="text-align:right">YoY Ene–Jun</th>
       </tr>
     </thead>
     <tbody id="tbodyMayo"></tbody>
   </table>
+  <div class="note">Vasos Julio = mes en curso (parcial, al 5 jul). YoY = semestre completo Ene–Jun 2026 vs Ene–Jun 2025 (evita la distorsión del mes parcial). Categorías externas: fuente VENTAS EXTERNAS.xlsx (2026 hoja GENERAL · CATEGORIA CLAUDE; 2025 hojas REMISIONES+FACTURAS, PADCOLOR y ALSEA).</div>
 </div>
 
 <!-- ═══ KPI CARDS — MAYO 2026 ═══ -->
@@ -165,10 +165,9 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
   <div class="kpi-t">Amz $19.16 · TikTok $17.35 · SHEIN $12.13 · WEB $11.43 · ML $9.90</div>
   </div>
   <div class="kpi">
-    <div class="kpi-l">Canal líder · Julio 2026 (parcial)</div>
-  <div class="kpi-v" style="font-size:22px;color:var(--ml)">ML</div>
-  <div class="kpi-s">36.2% del volumen Julio · 14,866 vasos</div>
-  <div class="kpi-t" style="color:var(--green)">▲ +10.0% YoY May-Jun</div>
+    <div class="kpi-l">Canal líder · Trimestre May–Jul 2026</div>
+  <div class="kpi-v" id="liderNombre" style="font-size:22px">—</div>
+  <div class="kpi-s" id="liderDetalle"></div>
   </div>
 </div>
 
@@ -341,19 +340,19 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 const PLAT = [
   { id:'shein',  label:'SHEIN',         color:'#111827', active:true,
     pedidos:13340, vasos:194590, neto:2469170, pvNeto:12.69, yoy:8.3,   momMayo:-85.0,
-    vasos2025:[54940,112920,150540],  vasos2026:[96960,84910,12720] },
+    vasos2025:[54940,112920,150540],  vasos2026:[96960,84910,12720], h1_2025:190260, h1_2026:472130 },
   { id:'amazon', label:'Amazon',        color:'#7C3AED', active:true,
     pedidos:1482,  vasos:28670,  neto:549318,  pvNeto:19.16, yoy:-27.4,  momMayo:-85.4,
-    vasos2025:[17180,19415,15370], vasos2026:[12150,14410,2110] },
+    vasos2025:[17180,19415,15370], vasos2026:[12150,14410,2110], h1_2025:83175, h1_2026:75690 },
   { id:'ml',     label:'Mercado Libre', color:'#EAB308', active:true,
     pedidos:4533,  vasos:214865, neto:2127163, pvNeto:9.90,  yoy:10.0,   momMayo:-82.1,
-    vasos2025:[83353,98399,61812], vasos2026:[117168,82831,14866] },
+    vasos2025:[83353,98399,61812], vasos2026:[117168,82831,14866], h1_2025:358149, h1_2026:513873 },
   { id:'tiktok', label:'TikTok',        color:'#D4C5A9', active:true,
     pedidos:2177,  vasos:34073,  neto:608606,  pvNeto:17.86, yoy:313.8,  momMayo:-68.5,
-    vasos2025:[1857,5115,6868],       vasos2026:[12283,16571,5219] },
+    vasos2025:[1857,5115,6868],       vasos2026:[12283,16571,5219], h1_2025:7541, h1_2026:66206 },
   { id:'web',    label:'WEB',           color:'#DC2626', active:true,
     pedidos:1039,  vasos:103830, neto:1305256, pvNeto:12.57,  yoy:-35.9,  momMayo:-88.7,
-    vasos2025:[69781,82680,53314], vasos2026:[43172,54513,6145] },
+    vasos2025:[69781,82680,53314], vasos2026:[43172,54513,6145], h1_2025:338976, h1_2026:237828 },
 ];
 const ACTIVE = PLAT.filter(p=>p.active);
 const MESES_S = ['May','Jun','Jul'];
@@ -426,16 +425,29 @@ function drawStackedH(canvasId, segments) {
   ctx.fillText('Total: '+total.toLocaleString(), PAD.l, bY-10);
 }
 
+// Categorías externas (VENTAS EXTERNAS.xlsx · hoja GENERAL · CATEGORIA CLAUDE)
+// vasosJul = Julio 2026 parcial (GENERAL). YoY = semestre Ene–Jun 2026 vs Ene–Jun 2025.
+// H1 2026: hoja GENERAL (CATEGORIA CLAUDE) · H1 2025: Distribuidor/Impresión de REMISIONES+FACTURAS,
+// Padcolor de hoja PADCOLOR, Starbucks de hoja ALSEA.
+const EXTERNAS = [
+  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', vasosJul:3119, h1_2025:245026, h1_2026:240601 },
+  { id:'impresion',    label:'Impresión',    color:'#d97706', vasosJul:2350, h1_2025:175951, h1_2026:80825 },
+  { id:'padcolor',     label:'Padcolor',     color:'#db2777', vasosJul:2830, h1_2025:65250,  h1_2026:64430 },
+  { id:'starbucks',    label:'Starbucks',    color:'#00704A', vasosJul:0,    h1_2025:548199, h1_2026:137370 },
+];
+
 // ── TABLA RESUMEN MAYO ───────────────────────────────────────────
 (function buildTablaMayo() {
-  const totalMayo  = ACTIVE.reduce((s, p) => s + p.vasos2026[2], 0);
+  const totalExternas = EXTERNAS.reduce((s, e) => s + e.vasosJul, 0);
+  const totalMayo  = ACTIVE.reduce((s, p) => s + p.vasos2026[2], 0) + totalExternas;
   const tbody = document.getElementById('tbodyMayo');
   // Ordenar por vasos mayo desc
   const sorted = [...ACTIVE].sort((a, b) => b.vasos2026[2] - a.vasos2026[2]);
   sorted.forEach(p => {
     const vMayo = p.vasos2026[2];
     const pct   = (vMayo / totalMayo * 100).toFixed(1);
-    const yoy   = p.yoy;
+    // YoY del semestre: Ene–Jun 2026 vs Ene–Jun 2025
+    const yoy   = (p.h1_2026 - p.h1_2025) / p.h1_2025 * 100;
     const tr = document.createElement('tr');
     tr.innerHTML =
       `<td><span class="dot" style="background:${p.color}"></span><strong>${p.label}</strong></td>` +
@@ -444,18 +456,46 @@ function drawStackedH(canvasId, segments) {
       `<td style="text-align:right" class="${yoy >= 0 ? 'up' : 'dn'}">${yoy >= 0 ? '▲ +' : '▼ '}${Math.abs(yoy).toFixed(1)}%</td>`;
     tbody.appendChild(tr);
   });
-  // Fila total — YoY calculado con Mayo+Junio (Julio aún sin comparable 2025)
-  const total2025MayJun = ACTIVE.reduce((s, p) => s + p.vasos2025[0] + p.vasos2025[1], 0);
-  const total2026MayJun = ACTIVE.reduce((s, p) => s + p.vasos2026[0] + p.vasos2026[1], 0);
-  const yoyTot = (total2026MayJun - total2025MayJun) / total2025MayJun * 100;
+  // Categorías externas (Distribuidor, Impresión, Padcolor, Starbucks)
+  [...EXTERNAS].sort((a, b) => b.vasosJul - a.vasosJul).forEach(e => {
+    const pct = (e.vasosJul / totalMayo * 100).toFixed(1);
+    // YoY del semestre: Ene–Jun 2026 vs Ene–Jun 2025
+    const eyoy = (e.h1_2026 - e.h1_2025) / e.h1_2025 * 100;
+    const tr = document.createElement('tr');
+    tr.innerHTML =
+      `<td><span class="dot" style="background:${e.color}"></span><strong>${e.label}</strong></td>` +
+      `<td style="text-align:right;font-weight:700">${e.vasosJul.toLocaleString()}</td>` +
+      `<td style="text-align:right">${pct}%</td>` +
+      `<td style="text-align:right" class="${eyoy >= 0 ? 'up' : 'dn'}">${eyoy >= 0 ? '▲ +' : '▼ '}${Math.abs(eyoy).toFixed(1)}%</td>`;
+    tbody.appendChild(tr);
+  });
+  // Fila total — YoY del semestre: Ene–Jun 2026 vs Ene–Jun 2025 (5 canales + 4 categorías externas)
+  const totalH1_2025 = ACTIVE.reduce((s, p) => s + p.h1_2025, 0)
+                      + EXTERNAS.reduce((s, e) => s + e.h1_2025, 0);
+  const totalH1_2026 = ACTIVE.reduce((s, p) => s + p.h1_2026, 0)
+                      + EXTERNAS.reduce((s, e) => s + e.h1_2026, 0);
+  const yoyTot = (totalH1_2026 - totalH1_2025) / totalH1_2025 * 100;
   const trTot  = document.createElement('tr');
   trTot.className = 'total';
   trTot.innerHTML =
     `<td>Total Julio (parcial)</td>` +
     `<td style="text-align:right">${totalMayo.toLocaleString()}</td>` +
     `<td style="text-align:right">100%</td>` +
-    `<td style="text-align:right" class="${yoyTot >= 0 ? 'up' : 'dn'}">${yoyTot >= 0 ? '▲ +' : '▼ '}${Math.abs(yoyTot).toFixed(1)}% (May-Jun)</td>`;
+    `<td style="text-align:right" class="${yoyTot >= 0 ? 'up' : 'dn'}">${yoyTot >= 0 ? '▲ +' : '▼ '}${Math.abs(yoyTot).toFixed(1)}% (Ene–Jun)</td>`;
   tbody.appendChild(trTot);
+})();
+
+// ── KPI CANAL LÍDER — trimestre May–Jul (auto-actualiza al avanzar julio) ──
+(function buildCanalLider() {
+  const totalTrim = ACTIVE.reduce((s, p) => s + p.vasos, 0);
+  const lider = [...ACTIVE].sort((a, b) => b.vasos - a.vasos)[0];
+  const share = (lider.vasos / totalTrim * 100).toFixed(1);
+  const abr = lider.label === 'Mercado Libre' ? 'ML' : lider.label;
+  const nom = document.getElementById('liderNombre');
+  nom.textContent = abr;
+  nom.style.color = lider.color;
+  document.getElementById('liderDetalle').textContent =
+    `${share}% del volumen trimestre · ${lider.vasos.toLocaleString()} vasos`;
 })();
 
 drawStackedH('cPartVasos', ACTIVE.map(p=>({label:p.label, v:p.vasos, color:p.color})));
