@@ -130,12 +130,12 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
         <th>Plataforma / Categoría</th>
         <th style="text-align:right">Vasos Julio</th>
         <th style="text-align:right">% del total</th>
-        <th style="text-align:right">YoY Ene–Jun</th>
+        <th style="text-align:right">YoY Ene–Jul</th>
       </tr>
     </thead>
     <tbody id="tbodyMayo"></tbody>
   </table>
-  <div class="note">Vasos Julio = mes en curso (parcial, al 12 jul). YoY = semestre completo Ene–Jun 2026 vs Ene–Jun 2025 (evita la distorsión del mes parcial). Categorías externas: fuente VENTAS EXTERNAS.xlsx (2026 hoja GENERAL · CATEGORIA CLAUDE; 2025 hojas REMISIONES+FACTURAS, PADCOLOR y ALSEA).</div>
+  <div class="note">Vasos Julio = mes en curso (parcial, al 12 jul). YoY Ene–Jul = Ene–Jun + julio en curso (parcial) 2026 vs Ene–Jul 2025 (mes completo); el % irá subiendo conforme julio se cierra. Categorías externas: fuente VENTAS EXTERNAS.xlsx (2026 hoja GENERAL · CATEGORIA CLAUDE; 2025 hojas REMISIONES+FACTURAS, PADCOLOR y ALSEA).</div>
 </div>
 
 <!-- ═══ KPI CARDS — MAYO 2026 ═══ -->
@@ -426,14 +426,14 @@ function drawStackedH(canvasId, segments) {
 }
 
 // Categorías externas (VENTAS EXTERNAS.xlsx · hoja GENERAL · CATEGORIA CLAUDE)
-// vasosJul = Julio 2026 parcial (GENERAL). YoY = semestre Ene–Jun 2026 vs Ene–Jun 2025.
-// H1 2026: hoja GENERAL (CATEGORIA CLAUDE) · H1 2025: Distribuidor/Impresión de REMISIONES+FACTURAS,
+// vasosJul = Julio 2026 parcial (GENERAL). YoY = Ene–Jul: (H1 2026 + jul parcial 2026) vs (H1 2025 + jul completo 2025).
+// H1 2026: hoja GENERAL (CATEGORIA CLAUDE) · H1 2025 y jul2025: Distribuidor/Impresión de REMISIONES+FACTURAS,
 // Padcolor de hoja PADCOLOR, Starbucks de hoja ALSEA.
 const EXTERNAS = [
-  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', vasosJul:9069, h1_2025:245026, h1_2026:240601 },
-  { id:'impresion',    label:'Impresión',    color:'#d97706', vasosJul:2350, h1_2025:175951, h1_2026:80825 },
-  { id:'padcolor',     label:'Padcolor',     color:'#db2777', vasosJul:2960, h1_2025:65250,  h1_2026:64430 },
-  { id:'starbucks',    label:'Starbucks',    color:'#00704A', vasosJul:0,    h1_2025:548199, h1_2026:137370 },
+  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', vasosJul:9069, jul2025:34563,  h1_2025:245026, h1_2026:240601 },
+  { id:'impresion',    label:'Impresión',    color:'#d97706', vasosJul:2350, jul2025:15906,  h1_2025:175951, h1_2026:80825 },
+  { id:'padcolor',     label:'Padcolor',     color:'#db2777', vasosJul:2960, jul2025:4840,   h1_2025:65250,  h1_2026:64430 },
+  { id:'starbucks',    label:'Starbucks',    color:'#00704A', vasosJul:0,    jul2025:101920, h1_2025:548199, h1_2026:137370 },
 ];
 
 // ── TABLA RESUMEN MAYO ───────────────────────────────────────────
@@ -446,8 +446,8 @@ const EXTERNAS = [
   sorted.forEach(p => {
     const vMayo = p.vasos2026[2];
     const pct   = (vMayo / totalMayo * 100).toFixed(1);
-    // YoY del semestre: Ene–Jun 2026 vs Ene–Jun 2025
-    const yoy   = (p.h1_2026 - p.h1_2025) / p.h1_2025 * 100;
+    // YoY Ene–Jul: (H1 + julio en curso parcial) 2026 vs (H1 + julio completo) 2025
+    const yoy   = ((p.h1_2026 + p.vasos2026[2]) - (p.h1_2025 + p.vasos2025[2])) / (p.h1_2025 + p.vasos2025[2]) * 100;
     const tr = document.createElement('tr');
     tr.innerHTML =
       `<td><span class="dot" style="background:${p.color}"></span><strong>${p.label}</strong></td>` +
@@ -459,8 +459,8 @@ const EXTERNAS = [
   // Categorías externas (Distribuidor, Impresión, Padcolor, Starbucks)
   [...EXTERNAS].sort((a, b) => b.vasosJul - a.vasosJul).forEach(e => {
     const pct = (e.vasosJul / totalMayo * 100).toFixed(1);
-    // YoY del semestre: Ene–Jun 2026 vs Ene–Jun 2025
-    const eyoy = (e.h1_2026 - e.h1_2025) / e.h1_2025 * 100;
+    // YoY Ene–Jul: (H1 + julio en curso parcial) 2026 vs (H1 + julio completo) 2025
+    const eyoy = ((e.h1_2026 + e.vasosJul) - (e.h1_2025 + e.jul2025)) / (e.h1_2025 + e.jul2025) * 100;
     const tr = document.createElement('tr');
     tr.innerHTML =
       `<td><span class="dot" style="background:${e.color}"></span><strong>${e.label}</strong></td>` +
@@ -469,19 +469,19 @@ const EXTERNAS = [
       `<td style="text-align:right" class="${eyoy >= 0 ? 'up' : 'dn'}">${eyoy >= 0 ? '▲ +' : '▼ '}${Math.abs(eyoy).toFixed(1)}%</td>`;
     tbody.appendChild(tr);
   });
-  // Fila total — YoY del semestre: Ene–Jun 2026 vs Ene–Jun 2025 (5 canales + 4 categorías externas)
-  const totalH1_2025 = ACTIVE.reduce((s, p) => s + p.h1_2025, 0)
-                      + EXTERNAS.reduce((s, e) => s + e.h1_2025, 0);
-  const totalH1_2026 = ACTIVE.reduce((s, p) => s + p.h1_2026, 0)
-                      + EXTERNAS.reduce((s, e) => s + e.h1_2026, 0);
-  const yoyTot = (totalH1_2026 - totalH1_2025) / totalH1_2025 * 100;
+  // Fila total — YoY Ene–Jul: Ene–Jun + julio en curso (parcial) 2026 vs Ene–Jul 2025 completo (5 canales + 4 categorías externas)
+  const totalEneJul_2025 = ACTIVE.reduce((s, p) => s + p.h1_2025 + p.vasos2025[2], 0)
+                      + EXTERNAS.reduce((s, e) => s + e.h1_2025 + e.jul2025, 0);
+  const totalEneJul_2026 = ACTIVE.reduce((s, p) => s + p.h1_2026 + p.vasos2026[2], 0)
+                      + EXTERNAS.reduce((s, e) => s + e.h1_2026 + e.vasosJul, 0);
+  const yoyTot = (totalEneJul_2026 - totalEneJul_2025) / totalEneJul_2025 * 100;
   const trTot  = document.createElement('tr');
   trTot.className = 'total';
   trTot.innerHTML =
     `<td>Total Julio (parcial)</td>` +
     `<td style="text-align:right">${totalMayo.toLocaleString()}</td>` +
     `<td style="text-align:right">100%</td>` +
-    `<td style="text-align:right" class="${yoyTot >= 0 ? 'up' : 'dn'}">${yoyTot >= 0 ? '▲ +' : '▼ '}${Math.abs(yoyTot).toFixed(1)}% (Ene–Jun)</td>`;
+    `<td style="text-align:right" class="${yoyTot >= 0 ? 'up' : 'dn'}">${yoyTot >= 0 ? '▲ +' : '▼ '}${Math.abs(yoyTot).toFixed(1)}% (Ene–Jul, jul parcial)</td>`;
   tbody.appendChild(trTot);
 })();
 
