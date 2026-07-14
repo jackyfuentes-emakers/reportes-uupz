@@ -188,7 +188,7 @@ canvas{display:block;width:100%!important}
 <div class="top5-grid">
   <div id="top5Grid"></div>
   <div class="card">
-    <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Top 10 colores por capacidad · SEM 24–27 (últimas 4 semanas)</div>
+    <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Top 10 colores por capacidad · SEM 25–28 (últimas 4 semanas)</div>
     <canvas id="cColores" style="display:block;width:100%"></canvas>
   </div>
 </div>
@@ -543,7 +543,7 @@ grid.innerHTML = `
   ${rows5}
 </div>`;
 
-// ── TOP 10 COLORES × CAPACIDAD (SEM 22–25) ───────────
+// ── TOP 10 COLORES × CAPACIDAD (SEM 25–28) ───────────
 // Fuente: VENTAS SHEIN 2026.xlsx — hoja TABLAS
 const CAP_COLORS = {
   '12OZ':'#3b82f6',
@@ -553,13 +553,13 @@ const CAP_COLORS = {
   '34OZ':'#111827',
 };
 const COLOR_CAP = {
-  labels: ['NG','RS/PST','RJ','DR/GTRT','TSP/GTR','MD/PST','TSP','AZ/CIE','AZ/PST','BG'],
+  labels: ['RS/PST','NG','RJ','DR/GTRT','MD/PST','TSP','TSP/GTR','AZ/CIE','AZ/PST','BG'],
   datasets: [
-    {label:'12OZ', color:CAP_COLORS['12OZ'], values:[1130,2500,1060,   0,   0,1340,   0,   0,1570,2000]},
-    {label:'16OZ', color:CAP_COLORS['16OZ'], values:[1930,1360,1190,   0, 370,1520,2570, 430,1380, 440]},
-    {label:'20OZ', color:CAP_COLORS['20OZ'], values:[2950,1550, 440,   0,   0, 560,   0,   0,   0,   0]},
-    {label:'24OZ', color:CAP_COLORS['24OZ'], values:[2580,2710,2030,4440,3160, 740,1110,2870,   0,   0]},
-    {label:'34OZ', color:CAP_COLORS['34OZ'], values:[   0,   0,   0,   0, 680,   0,   0,   0,   0,   0]},
+    {label:'12OZ', color:CAP_COLORS['12OZ'], values:[2420,1120, 900,   0,1600,   0,   0,   0,1240,1680]},
+    {label:'16OZ', color:CAP_COLORS['16OZ'], values:[1480,1610,1320,   0,1480,2350, 400, 440,1480, 370]},
+    {label:'20OZ', color:CAP_COLORS['20OZ'], values:[1420,2350, 300,   0, 440,   0,   0,   0,   0,   0]},
+    {label:'24OZ', color:CAP_COLORS['24OZ'], values:[2340,2140,2010,4190, 520,1290,2440,2550,   0,   0]},
+    {label:'34OZ', color:CAP_COLORS['34OZ'], values:[   0,   0,   0,   0,   0,   0, 640,   0,   0,   0]},
   ]
 };
 

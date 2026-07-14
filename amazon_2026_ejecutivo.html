@@ -164,7 +164,7 @@ canvas{display:block;width:100%!important}
 <div class="top5-grid">
   <div id="top5Grid"></div>
   <div class="card">
-    <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Top 10 colores por capacidad · SEM 24–27 (últimas 4 semanas)</div>
+    <div class="card-t"><span class="ct-dot" style="background:var(--purple)"></span>Top 10 colores por capacidad · SEM 25–28 (últimas 4 semanas)</div>
     <canvas id="cColores" style="display:block;width:100%"></canvas>
   </div>
 </div>
@@ -426,15 +426,15 @@ grid.innerHTML=`
   ${rows5}
 </div>`;
 
-// ══ COLORES × CAPACIDAD (SEM 22–25) ══════════════════
+// ══ COLORES × CAPACIDAD (SEM 25–28) ══════════════════
 const COLOR_CAP={
-  labels:['COMB','TSP/GTR','DR/GTRT','TSP','BG','COMB/MAG','NG','RJ','RS/PST','BL'],
+  labels:['COMB','NG','TSP/GTR','DR/GTRT','RS/PST','TSP','RJ','BG','COMB/MAG','BL'],
   datasets:[
-    {label:'12OZ',color:'#3b82f6',values:[980,  0,  0,  0,590,590,  0,390,380,  0]},
-    {label:'16OZ',color:'#8b5cf6',values:[  0,  0,  0,  0,  0,  0,590,  0,  0,350]},
-    {label:'20OZ',color:'#10b981',values:[  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]},
-    {label:'24OZ',color:'#f59e0b',values:[  0,830,780,600,  0,  0,  0,  0,  0,  0]},
-    {label:'34OZ',color:'#111827',values:[  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]},
+    {label:'12OZ',color:'#3b82f6',values:[980,170,  0,  0,490,  0,460,450,540,  0]},
+    {label:'16OZ',color:'#8b5cf6',values:[430,750, 30,  0, 60,120,150,130,  0,230]},
+    {label:'20OZ',color:'#10b981',values:[ 20, 40,  0,  0, 50,  0, 20,  0,  0, 50]},
+    {label:'24OZ',color:'#f59e0b',values:[180,240,630,850,150,560,  0,  0,  0,210]},
+    {label:'34OZ',color:'#111827',values:[  0, 10,230,  0,  0,  0,  0,  0,  0,  0]},
   ]
 };
 drawStackedBar('cColores',{labels:COLOR_CAP.labels,datasets:COLOR_CAP.datasets,height:260});
