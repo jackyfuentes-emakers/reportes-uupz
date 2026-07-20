@@ -423,10 +423,10 @@ function drawStackedH(canvasId, segments) {
 // H1 2026: hoja GENERAL (CATEGORIA CLAUDE) · H1 2025 y jul2025: Distribuidor/Impresión de REMISIONES+FACTURAS,
 // Padcolor de hoja PADCOLOR, Starbucks de hoja ALSEA.
 const EXTERNAS = [
-  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', vasosJul:9069, jul2025:34563,  h1_2025:245026, h1_2026:240601 },
-  { id:'impresion',    label:'Impresión',    color:'#d97706', vasosJul:2350, jul2025:15906,  h1_2025:175951, h1_2026:80825 },
-  { id:'padcolor',     label:'Padcolor',     color:'#db2777', vasosJul:2960, jul2025:4840,   h1_2025:65250,  h1_2026:64430 },
-  { id:'starbucks',    label:'Starbucks',    color:'#00704A', vasosJul:0,    jul2025:101920, h1_2025:548199, h1_2026:137370 },
+  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', vasosJul:16630, jul2025:34563,  h1_2025:245026, h1_2026:240601 },
+  { id:'impresion',    label:'Impresión',    color:'#d97706', vasosJul:4150, jul2025:15906,  h1_2025:175951, h1_2026:80825 },
+  { id:'padcolor',     label:'Padcolor',     color:'#db2777', vasosJul:4860, jul2025:4840,   h1_2025:65250,  h1_2026:64430 },
+  { id:'starbucks',    label:'Starbucks',    color:'#00704A', vasosJul:2160,    jul2025:101920, h1_2025:548199, h1_2026:137370 },
 ];
 
 // ── TABLA RESUMEN MAYO ───────────────────────────────────────────
@@ -679,7 +679,7 @@ drawStackedH('cPartNeto',  ACTIVE.map(p=>({label:p.label, v:p.neto,  color:p.col
 (function drawTendencia() {
   // Datos 2025 (52 semanas) y 2026 (22 semanas: Ene SEM1–May SEM4)
   // Fuente: CONCENTRADO.xlsx / VASOS X SEM (SHEIN+Amazon+ML+WEB)
-  // Fuente: CONCENTRADO.xlsx / VASOS X SEM (SHEIN+Amazon+ML+WEB) — May–Jul 2026
+  // 2026: suma directa de los 5 canales (SHEIN+Amazon+ML+TikTok+WEB), por semana ISO del año
   const DATA25 = [
     13735,24639,27091,24565,22562, // ENERO
     21698,20096,20398,22951,       // FEBRERO
