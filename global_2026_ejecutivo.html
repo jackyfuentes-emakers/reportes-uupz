@@ -419,13 +419,13 @@ function drawStackedH(canvasId, segments) {
 }
 
 // Categorías externas (VENTAS EXTERNAS.xlsx refrescado al 2 ago). Campos: vasosJul = AGOSTO 2026; jul2025 = AGOSTO 2025; h1_* = Ene–Jul.
-// AGO 2026 = 0 en las 4 (B2B sin pedidos al 2 ago). Fuentes: agosto/Ene–Jul 2026 de hoja GENERAL (CATEGORIA CLAUDE);
+// AGO 2026 = 0 en las 4 (B2B sin pedidos al 2 ago). Fuentes: agosto/Ene–Jul 2026 de hoja GENERAL (CATEGORIA CLAUDE). OJO Starbucks = etiquetas STARBUCKS + ALSEA (mismo cliente); el lote jul-2026 (2160) vino tagueado ALSEA → jul2026:2160, h1_2026:139530.
 // agosto 2025 de REMISIONES+FACTURAS (Distr=DISTR/SIN IMPRESIÓN, Impr=IMPRES no-SIN), PADCOLOR y ALSEA; Ene–Jul 2025 = Ene–Jun previo + julio 2025.
 const EXTERNAS = [
   { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:0, jul2025:19506,  h1_2025:279589, h1_2026:258972 },
   { id:'impresion',    label:'Impresión',    color:'#d97706', jul2026:7650,  vasosJul:0, jul2025:11204,  h1_2025:191857, h1_2026:88475 },
   { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:0, jul2025:3960,   h1_2025:70090,  h1_2026:71770 },
-  { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:0,     vasosJul:0, jul2025:162126, h1_2025:650119, h1_2026:137370 },
+  { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:2160,  vasosJul:0, jul2025:162126, h1_2025:650119, h1_2026:139530 },
 ];
 
 // ── TABLA RESUMEN MAYO ───────────────────────────────────────────
