@@ -135,7 +135,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
     </thead>
     <tbody id="tbodyMayo"></tbody>
   </table>
-  <div class="note">Vasos Agosto = mes en curso (parcial, al 16 ago). YoY Ene–Ago = acumulado del año (Ene–Ago, agosto parcial) 2026 vs 2025 — sesgado a la baja al inicio del mes y sube conforme avanza. WEB y TikTok 2026 con metodología nueva → YoY vs 2025 aproximado. Categorías externas: fuente VENTAS EXTERNAS.xlsx (hoja GENERAL); agosto B2B al 11 ago = 60,009 vasos (filas de agosto sin taguear en CATEGORIA CLAUDE → clasificadas por CATEGORIA/TIPO/CLIENTE; lote ALSEA = Starbucks).</div>
+  <div class="note">Vasos Agosto = mes en curso (parcial, al 16 ago). YoY Ene–Ago = acumulado del año (Ene–Ago, agosto parcial) 2026 vs 2025 — sesgado a la baja al inicio del mes y sube conforme avanza. WEB y TikTok 2026 con metodología nueva → YoY vs 2025 aproximado. Categorías externas: fuente VENTAS EXTERNAS.xlsx (hoja GENERAL); agosto B2B al 16 ago = 96,389 vasos (filas de agosto sin taguear en CATEGORIA CLAUDE → clasificadas por CATEGORIA/TIPO/CLIENTE; lote ALSEA = Starbucks).</div>
 </div>
 
 <!-- ═══ KPI CARDS — MAYO 2026 ═══ -->
@@ -247,7 +247,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
         <td>6.2%</td>
         <td>$693,976</td>
         <td>$19.16</td>
-        <td class="dn">▼ −13.1%</td>
+        <td class="dn">▼ −13.2%</td>
       </tr>
       <tr>
         <td><span class="dot" style="background:var(--ml)"></span><strong>Mercado Libre</strong></td>
@@ -418,15 +418,15 @@ function drawStackedH(canvasId, segments) {
   ctx.fillText('Total: '+total.toLocaleString(), PAD.l, bY-10);
 }
 
-// Categorías externas (VENTAS EXTERNAS.xlsx actualizado al 11 ago). Campos: vasosJul = AGOSTO 2026; jul2025 = AGOSTO 2025; h1_* = Ene–Jul.
-// AGO 2026 = 60,009 vasos (20 filas). OJO: las filas de agosto vinieron SIN taguear en 'CATEGORIA CLAUDE' → clasificadas por CATEGORIA/TIPO/CLIENTE (mismo método que 2025):
-//   Distribuidor 25854 (DISTR·SIN IMPRESIÓN) · Impresión 2900 (CAFET·IMPRESIÓN) · Padcolor 2500 (PADCOLOR) · Starbucks 28755 (cliente ALSEA, 2 lotes TIPO=IMPRESIÓN → Starbucks, confirmado por Jacky SEM32).
+// Categorías externas (VENTAS EXTERNAS.xlsx actualizado al 16 ago, SEM33). Campos: vasosJul = AGOSTO 2026; jul2025 = AGOSTO 2025; h1_* = Ene–Jul.
+// AGO 2026 = 96,389 vasos (43 filas). OJO: las filas de agosto vinieron SIN taguear en 'CATEGORIA CLAUDE' → clasificadas por CATEGORIA/TIPO/CLIENTE (mismo método que 2025):
+//   Distribuidor 28064 (DISTR·SIN IMPRESIÓN) · Impresión 8600 (CAFET·IMPRESIÓN) · Padcolor 5050 (PADCOLOR) · Starbucks 54675 (cliente ALSEA, 3 lotes TEMP/CORE TIPO=IMPRESIÓN → Starbucks).
 // Julio y Ene–Jul sin cambio. agosto 2025 de REMISIONES+FACTURAS (Distr=DISTR/SIN IMPRESIÓN, Impr=IMPRES no-SIN), PADCOLOR y ALSEA; Ene–Jul 2025 = Ene–Jun previo + julio 2025.
 const EXTERNAS = [
-  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:25854, jul2025:19506,  h1_2025:279589, h1_2026:258972 },
-  { id:'impresion',    label:'Impresión',    color:'#d97706', jul2026:7650,  vasosJul:2900,  jul2025:11204,  h1_2025:191857, h1_2026:88475 },
-  { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:2500,  jul2025:3960,   h1_2025:70090,  h1_2026:71770 },
-  { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:2160,  vasosJul:28755, jul2025:162126, h1_2025:650119, h1_2026:139530 },
+  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:28064, jul2025:19506,  h1_2025:279589, h1_2026:258972 },
+  { id:'impresion',    label:'Impresión',    color:'#d97706', jul2026:7650,  vasosJul:8600,  jul2025:11204,  h1_2025:191857, h1_2026:88475 },
+  { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:5050,  jul2025:3960,   h1_2025:70090,  h1_2026:71770 },
+  { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:2160,  vasosJul:54675, jul2025:162126, h1_2025:650119, h1_2026:139530 },
 ];
 
 // ── TABLA RESUMEN AGOSTO (mes en curso) ──────────────────────────
