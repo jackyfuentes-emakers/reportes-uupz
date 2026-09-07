@@ -88,10 +88,10 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
   <div class="hdr-icon">🛒</div>
   <div>
     <div class="hdr-title">Mercado Libre 2026 — Reporte Ejecutivo</div>
-    <div class="hdr-sub">Semanas 19–36 · Julio–Septiembre 2026 · Cuentas: ML UUPZ + ML EMAKERS</div>
+    <div class="hdr-sub">Semanas 27–36 · Julio–Septiembre 2026 · Cuentas: ML UUPZ + ML EMAKERS</div>
   </div>
   <div class="hdr-badges">
-    <span class="badge">SEM 19–36</span>     <span class="badge">Jul–Sep 2026</span>
+    <span class="badge">SEM 27–36</span>     <span class="badge">Jul–Sep 2026</span>
     <span class="badge-g badge">2 cuentas activas</span>
     <span class="badge" style="background:#dcfce7;color:#15803d;border-color:#bbf7d0">▲ +43.5% YoY (Jul-Ago)</span>
     <a href="global_2026_ejecutivo.html?v=sem36" style="font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;background:#f8faff;color:#4338ca;border:1.5px solid #c7d2fe;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:opacity .15s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'" title="Ver reporte global">🌐 Ver Global</a>
@@ -131,10 +131,8 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 <div class="g2">
   <div class="card">
     <div class="card-t">
-      <span class="ct-dot"></span>Vasos semanales — SEM 19 al SEM 36
+      <span class="ct-dot"></span>Vasos semanales — SEM 27 al SEM 36
       <span style="margin-left:auto;display:flex;gap:10px;font-size:11px">
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#94a3b8;border-radius:2px;display:inline-block"></span>Mayo</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:var(--ml);border-radius:2px;display:inline-block"></span>Junio</span>
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:var(--purple);border-radius:2px;display:inline-block"></span>Julio</span>
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#0891b2;border-radius:2px;display:inline-block"></span>Agosto</span>
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#16a34a;border-radius:2px;display:inline-block"></span>Septiembre</span>
@@ -260,11 +258,11 @@ function roundRect(ctx, x, y, w, h, r) {
 }
 
 // ── DATA ──────────────────────────────────────────────
-const SEM_VASOS   = [28217,24112,22574,24600,18026,17066,19123,21931,22429,22749,22846,17435,12777,16996,18378,17921,16818,16587];
-const SEM_PEDIDOS = [628,570,474,474,380,356,383,436,498,453,466,409,304,379,408,391,373,343];
-const SEM_LABELS  = ['S19','S20','S21','S22','S23','S24','S25','S26','S27','S28','S29','S30','S31','S32','S33','S34','S35','S36'];
-const MES_COLORS = ['#94a3b8','#EAB308','#9333ea','#0891b2','#16a34a'];
-const MES_RANGES = [[0,4],[4,8],[8,13],[13,17],[17,18]]; // indices por mes (18 semanas: Mayo4+Junio4+Julio5+Agosto4+Septiembre1)
+const SEM_VASOS   = [22429,22749,22846,17435,12777,16996,18378,17921,16818,16587];
+const SEM_PEDIDOS = [498,453,466,409,304,379,408,391,373,343];
+const SEM_LABELS  = ['S27','S28','S29','S30','S31','S32','S33','S34','S35','S36'];
+const MES_COLORS = ['#9333ea','#0891b2','#16a34a'];
+const MES_RANGES = [[0,5],[5,9],[9,10]]; // indices por mes (10 semanas: Julio5+Agosto4+Septiembre1)
 
 const DOW = [
   {d:'Mié',v:658},{d:'Mar',v:609},{d:'Lun',v:608},
