@@ -135,7 +135,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
     </thead>
     <tbody id="tbodyMayo"></tbody>
   </table>
-  <div class="note">Vasos Septiembre = mes EN CURSO (5 canales al 27 sep · Sep 1-27; externas B2B al 21 sep — pendiente actualización). YoY Ene–Sep = acumulado del año incl. septiembre parcial 2026 vs 2025 → sale a la baja por el mes en curso y sube conforme avanza septiembre. WEB y TikTok 2026 con metodología nueva → YoY vs 2025 aproximado. Categorías externas: fuente VENTAS EXTERNAS.xlsx (hoja GENERAL); septiembre B2B al 21 sep = 29,411 vasos (Distribuidor 11,743 · Impresión 13,918 · Padcolor 3,750 · Starbucks 0).</div>
+  <div class="note">Vasos Septiembre = mes EN CURSO (5 canales al 27 sep · Sep 1-27; externas B2B al 28 sep). YoY Ene–Sep = acumulado del año incl. septiembre parcial 2026 vs 2025 → sale a la baja por el mes en curso y sube conforme avanza septiembre. WEB y TikTok 2026 con metodología nueva → YoY vs 2025 aproximado. Categorías externas: fuente VENTAS EXTERNAS.xlsx (hoja GENERAL); septiembre B2B al 28 sep = 37,891 vasos (Distribuidor 17,733 · Impresión 16,318 · Padcolor 3,840 · Starbucks 0).</div>
 </div>
 
 <!-- ═══ KPI CARDS — MAYO 2026 ═══ -->
@@ -420,21 +420,21 @@ function drawStackedH(canvasId, segments) {
   ctx.fillText('Total: '+total.toLocaleString(), PAD.l, bY-10);
 }
 
-// Categorías externas (VENTAS EXTERNAS.xlsx, SEPTIEMBRE en curso; archivo actualizado 15 sep 12:50). Campos: vasosJul = SEP 2026; jul2025 = SEP 2025; h1_* = Ene–Ago (rodado +agosto).
-// SEP 2026 = 29,411 vasos (48 filas, al 21 sep). Clasificado por CATEGORIA/TIPO/CLIENTE (CATEGORIA CLAUDE fusiona Padcolor en DISTRIBUIDOR → se separa a mano):
-//   Distribuidor 11743 (DISTR·SIN IMPRESIÓN) · Impresión 13918 (CAFET/IMPRESIÓN) · Padcolor 3750 (CATEGORIA=PADCOLOR) · Starbucks 0 (sin lote ALSEA en sep aún).
+// Categorías externas (VENTAS EXTERNAS.xlsx, SEPTIEMBRE en curso; archivo actualizado 29 sep 10:48). Campos: vasosJul = SEP 2026; jul2025 = SEP 2025; h1_* = Ene–Ago (rodado +agosto).
+// SEP 2026 = 37,891 vasos (62 filas, al 28 sep). Clasificado por CATEGORIA/TIPO/CLIENTE (CATEGORIA CLAUDE fusiona Padcolor en DISTRIBUIDOR → se separa a mano):
+//   Distribuidor 17733 (DISTR·SIN IMPRESIÓN) · Impresión 16318 (CAFET/IMPRESIÓN) · Padcolor 3840 (CATEGORIA=PADCOLOR) · Starbucks 0 (sin lote ALSEA en sep aún).
 // SEP 2025 de REMISIONES+FACTURAS/PADCOLOR/ALSEA (validado: ago-2025 reprodujo exacto): Distr 35781 · Impr 10336 · Pad 13060 · Star 37572. h1 Ene–Ago = Ene–Jul previo + agosto (ambos años).
 const EXTERNAS = [
-  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:11743, jul2025:35781,  h1_2025:299095, h1_2026:306252 },
-  { id:'impresion',    label:'Impresión',    color:'#d97706', jul2026:7650,  vasosJul:13918, jul2025:10336,  h1_2025:203061, h1_2026:99799 },
-  { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:3750,  jul2025:13060,  h1_2025:74050,  h1_2026:78470 },
+  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:17733, jul2025:35781,  h1_2025:299095, h1_2026:306252 },
+  { id:'impresion',    label:'Impresión',    color:'#d97706', jul2026:7650,  vasosJul:16318, jul2025:10336,  h1_2025:203061, h1_2026:99799 },
+  { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:3840,  jul2025:13060,  h1_2025:74050,  h1_2026:78470 },
   { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:2160,  vasosJul:0,     jul2025:37572,  h1_2025:812245, h1_2026:194205 },
 ];
 
 // ── TABLA RESUMEN AGOSTO (mes en curso) ──────────────────────────
 (function buildTablaMayo() {
-  // SEPTIEMBRE EN CURSO (héroe del resumen). Ventana [jul,ago,sep] → septiembre = index[2]. Columna Vasos = septiembre (al 27 sep, externas al 21 sep pendiente); YoY = Ene–Sep (h1 Ene–Ago + sep index[2]).
-  const totalExternas = EXTERNAS.reduce((s, e) => s + e.vasosJul, 0);   // septiembre externas (al 21 sep)
+  // SEPTIEMBRE EN CURSO (héroe del resumen). Ventana [jul,ago,sep] → septiembre = index[2]. Columna Vasos = septiembre (al 27 sep, externas al 28 sep); YoY = Ene–Sep (h1 Ene–Ago + sep index[2]).
+  const totalExternas = EXTERNAS.reduce((s, e) => s + e.vasosJul, 0);   // septiembre externas (al 28 sep)
   const totalMayo  = ACTIVE.reduce((s, p) => s + p.vasos2026[2], 0) + totalExternas;
   const tbody = document.getElementById('tbodyMayo');
   // Ordenar por vasos septiembre desc
