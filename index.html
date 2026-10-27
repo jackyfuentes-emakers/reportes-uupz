@@ -135,7 +135,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
     </thead>
     <tbody id="tbodyMayo"></tbody>
   </table>
-  <div class="note">Vasos Octubre = mes EN CURSO (5 canales al 25 oct · Oct 1–25; externas B2B al 19 oct). YoY Ene–Oct = acumulado del año 2026 vs 2025, con octubre 2026 parcial contra octubre 2025 completo → sale sesgado a la baja y sube conforme avanza el mes. WEB y TikTok 2026 con metodología nueva → YoY vs 2025 aproximado. Categorías externas: fuente VENTAS EXTERNAS.xlsx (hoja GENERAL); octubre B2B = 191,843 vasos (Starbucks 153,555 · Distribuidor 16,869 · Impresión 16,819 · Padcolor 4,600).</div>
+  <div class="note">Vasos Octubre = mes EN CURSO (5 canales al 25 oct · Oct 1–25; externas B2B al 27 oct). YoY Ene–Oct = acumulado del año 2026 vs 2025, con octubre 2026 parcial contra octubre 2025 completo → sale sesgado a la baja y sube conforme avanza el mes. WEB y TikTok 2026 con metodología nueva → YoY vs 2025 aproximado. Categorías externas: fuente VENTAS EXTERNAS.xlsx (hoja GENERAL); octubre B2B = 292,305 vasos (Starbucks 241,537 · Distribuidor 29,319 · Impresión 16,819 · Padcolor 4,630).</div>
 </div>
 
 <!-- ═══ KPI CARDS — OCTUBRE 2026 (en curso) ═══ -->
@@ -420,15 +420,15 @@ function drawStackedH(canvasId, segments) {
   ctx.fillText('Total: '+total.toLocaleString(), PAD.l, bY-10);
 }
 
-// Categorías externas (VENTAS EXTERNAS.xlsx, OCTUBRE EN CURSO; SEM42, archivo actualizado 19 oct 12:32). Campos: vasosJul = OCT 2026; jul2025 = OCT 2025; h1_* = Ene–Sep (rodado +septiembre).
-// OCT 2026 = 191,843 vasos (52 filas; SEM42). Distr 16869 · Impr 16819 · Pad 4600 · Star 153555 (5 lotes ALSEA TEMP). Valores SEM41 (24 filas, 95,610): Clasificado por CATEGORIA/TIPO/CLIENTE (CATEGORIA CLAUDE fusiona Padcolor en DISTRIBUIDOR → se separa):
+// Categorías externas (VENTAS EXTERNAS.xlsx, OCTUBRE EN CURSO; 2a pasada SEM43, archivo actualizado 27 oct 11:56). Campos: vasosJul = OCT 2026; jul2025 = OCT 2025; h1_* = Ene–Sep (rodado +septiembre).
+// OCT 2026 = 292,305 vasos (70 filas; 2a pasada SEM43). Distr 29319 · Impr 16819 · Pad 4630 · Star 241537. SEM42 (52 filas): 191,843. Valores SEM41 (24 filas, 95,610): Clasificado por CATEGORIA/TIPO/CLIENTE (CATEGORIA CLAUDE fusiona Padcolor en DISTRIBUIDOR → se separa):
 //   Distribuidor 11079 (DISTR·SIN IMPRESIÓN) · Impresión 3846 (CAFET/IMPRESIÓN) · Padcolor 2010 (CATEGORIA=PADCOLOR) · Starbucks 78675 (3 lotes ALSEA TEMP; mismo total que sep por coincidencia, lotes distintos).
 // OCT 2025 de REMISIONES+FACTURAS/PADCOLOR/ALSEA (validado: sep-2025 reprodujo exacto): Distr 44081 · Impr 5150 · Pad 7770 · Star 155380. h1 Ene–Sep = Ene–Ago previo + septiembre (sep-2026 cerrado 21713/16318/3840/78675; sep-2025 35781/10336/13060/37572).
 const EXTERNAS = [
-  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:16869, jul2025:44081,  h1_2025:334876, h1_2026:327965 },
+  { id:'distribuidor', label:'Distribuidor', color:'#0891b2', jul2026:18371, vasosJul:29319, jul2025:44081,  h1_2025:334876, h1_2026:327965 },
   { id:'impresion',    label:'Impresión',    color:'#d97706', jul2026:7650,  vasosJul:16819, jul2025:5150,   h1_2025:213397, h1_2026:116117 },
-  { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:4600,  jul2025:7770,   h1_2025:87110,  h1_2026:82310 },
-  { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:2160,  vasosJul:153555, jul2025:155380, h1_2025:849817, h1_2026:272880 },
+  { id:'padcolor',     label:'Padcolor',     color:'#db2777', jul2026:7340,  vasosJul:4630,  jul2025:7770,   h1_2025:87110,  h1_2026:82310 },
+  { id:'starbucks',    label:'Starbucks',    color:'#00704A', jul2026:2160,  vasosJul:241537, jul2025:155380, h1_2025:849817, h1_2026:272880 },
 ];
 
 // ── TABLA RESUMEN OCTUBRE (en curso) ──────────────────────────
@@ -471,7 +471,7 @@ const EXTERNAS = [
   const trTot  = document.createElement('tr');
   trTot.className = 'total';
   trTot.innerHTML =
-    `<td>Total Octubre (en curso · 5 canales al 25 oct + externas al 19 oct)</td>` +
+    `<td>Total Octubre (en curso · 5 canales al 25 oct + externas al 27 oct)</td>` +
     `<td style="text-align:right">${totalMayo.toLocaleString()}</td>` +
     `<td style="text-align:right">100%</td>` +
     `<td style="text-align:right" class="${yoyTot >= 0 ? 'up' : 'dn'}">${yoyTot >= 0 ? '▲ +' : '▼ '}${Math.abs(yoyTot).toFixed(1)}% (Ene–Oct acum.)</td>`;
