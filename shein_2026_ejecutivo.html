@@ -280,7 +280,7 @@ function drawBar(canvasId, {labels, values, colors, topLabels, min=0, unit='', h
       ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(padL+cW,y); ctx.stroke();
       ctx.fillStyle='#9ca3af'; ctx.font='10px -apple-system,sans-serif';
       ctx.textAlign='right';
-      ctx.fillText((v>=1000?(v/1000).toFixed(0)+'k':v.toFixed(0))+(unit||''), padL-4, y+3.5);
+      ctx.fillText((v>=1000?(v/1000).toFixed(Math.round(v)%1000?1:0)+'k':v.toFixed(0))+(unit||''), padL-4, y+3.5);
     }
   }
 
@@ -451,7 +451,7 @@ const MES_V  = [60140,61030,58070];
 const MES_C  = ['#94a3b8','#111827','#9333ea'];
 
 // ── Render semanas
-drawBar('cSem',{labels:SEMS, values:SEM_V, colors:SEM_C, topLabels:SEM_P, min:11000, height:260});
+drawBar('cSem',{labels:SEMS, values:SEM_V, colors:SEM_C, topLabels:SEM_P, min:10000, height:260});
 
 // ── Render meses
 drawBar('cMes',{labels:MESES, values:MES_V, colors:MES_C, min:0, height:180});
@@ -640,7 +640,7 @@ drawStackedBar('cColores', {
 
 // Re-render on resize
 window.addEventListener('resize',()=>{
-  drawBar('cSem',{labels:SEMS,values:SEM_V,colors:SEM_C,topLabels:SEM_P,min:11000,height:260});
+  drawBar('cSem',{labels:SEMS,values:SEM_V,colors:SEM_C,topLabels:SEM_P,min:10000,height:260});
   drawBar('cMes',{labels:MESES,values:MES_V,colors:MES_C,min:0,height:180});
   drawStackedBar('cColores',{labels:COLOR_CAP.labels,datasets:COLOR_CAP.datasets,height:260});
 });
