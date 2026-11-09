@@ -138,7 +138,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
         <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:#16a34a;border-radius:2px;display:inline-block"></span>Noviembre</span>
       </span>
     </div>
-    <canvas id="cSem"></canvas>
+    <canvas id="cSem" height="260"></canvas>
   </div>
   <div class="card">
     <div class="card-t"><span class="ct-dot" style="background:var(--amber)"></span>Pedidos por día de la semana</div>
@@ -296,44 +296,93 @@ const YOY = {
 
 const MES_VASOS = [65517, 72198, 27529];
 
-// ── CHART 1: SEMANAL ──────────────────────────────────
-(function() {
-  const h = 240;
-  const r = initCanvas('cSem', h);
-  if (!r) return;
-  const {ctx, w} = r;
-  const PAD = {t:28, l:48, r:14, b:36};
-  const cW = w-PAD.l-PAD.r, cH = h-PAD.t-PAD.b;
-  const bW = Math.max(10, cW/SEM_VASOS.length - 5);
-  const max = Math.max(...SEM_VASOS) * 1.15;
+// ── CHART 1: SEMANAL (homologado con SHEIN/Amazon/TikTok/WEB: mismo drawBar) ──
+function clr(hex, a=1){
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
 
-  // Grid
-  [0,.25,.5,.75,1].forEach(t=>{
-    const y = PAD.t + cH*(1-t);
-    ctx.strokeStyle='#e5e7eb'; ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(PAD.l,y); ctx.lineTo(PAD.l+cW,y); ctx.stroke();
-    ctx.fillStyle='#94a3b8'; ctx.font='10px sans-serif'; ctx.textAlign='right';
-    ctx.fillText((max*t/1000).toFixed(0)+'K', PAD.l-5, y+3.5);
-  });
+// ─── BAR CHART ─────────────────────────────────────────
+function drawBar(canvasId, {labels, values, colors, topLabels, min=0, unit='', height=240, showGrid=true}){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const dpr = window.devicePixelRatio||1;
+  const W = canvas.offsetWidth||canvas.parentElement.offsetWidth||600;
+  const H = height;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  canvas.style.height = H+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
 
-  SEM_VASOS.forEach((v,i)=>{
-    const x = PAD.l + i*(cW/SEM_VASOS.length) + (cW/SEM_VASOS.length - bW)/2;
-    const bH = (v/max)*cH;
-    const mesIdx = MES_RANGES.findIndex(([a,b])=>i>=a&&i<b);
-    ctx.fillStyle = MES_COLORS[mesIdx]||'#94a3b8';
-    roundRect(ctx, x, PAD.t+cH-bH, bW, bH, 3);
-    ctx.fill();
+  const padL=42, padR=12, padT=36, padB=36;
+  const cW=W-padL-padR, cH=H-padT-padB;
+  const n=values.length;
+  const barW = Math.floor(cW/n*0.62);
+  const gap  = (cW - barW*n)/(n);
 
-    // Pedidos pill
-    ctx.fillStyle = MES_COLORS[mesIdx];
-    ctx.font='bold 8px sans-serif'; ctx.textAlign='center';
-    ctx.fillText(SEM_PEDIDOS[i]+'p', x+bW/2, PAD.t+cH-bH-6);
+  const maxV = Math.max(...values.filter(v=>v!=null));
+  const minV = min;
+  const range = maxV - minV;
+
+  // Grid lines
+  if(showGrid){
+    const steps=4;
+    ctx.strokeStyle='#f1f5f9'; ctx.lineWidth=1;
+    for(let i=0;i<=steps;i++){
+      const v = minV + range*i/steps;
+      const y = padT + cH - (v-minV)/range*cH;
+      ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(padL+cW,y); ctx.stroke();
+      ctx.fillStyle='#9ca3af'; ctx.font='10px -apple-system,sans-serif';
+      ctx.textAlign='right';
+      ctx.fillText((v>=1000?(v/1000).toFixed(Math.round(v)%1000?1:0)+'k':v.toFixed(0))+(unit||''), padL-4, y+3.5);
+    }
+  }
+
+  // Bars
+  values.forEach((v,i)=>{
+    if(v==null) return;
+    const x = padL + gap/2 + i*(barW+gap);
+    const bH = (v-minV)/range*cH;
+    const y  = padT + cH - bH;
+    const c  = Array.isArray(colors)?colors[i]:colors;
+
+    // Bar fill
+    ctx.fillStyle = clr(c, 0.85);
+    const r=5;
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+barW-r,y);
+    ctx.quadraticCurveTo(x+barW,y,x+barW,y+r);
+    ctx.lineTo(x+barW,y+bH); ctx.lineTo(x,y+bH);
+    ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath(); ctx.fill();
+
+    // Top label (e.g. pedidos count)
+    if(topLabels && topLabels[i]!=null){
+      const lbl = topLabels[i].toLocaleString('es-MX');
+      ctx.font = 'bold 10px -apple-system,sans-serif';
+      const tw = ctx.measureText(lbl).width+8;
+      const bx = x+barW/2-tw/2, by = y-18;
+      ctx.fillStyle = clr(c,1);
+      ctx.beginPath(); ctx.roundRect(bx,by,tw,14,3); ctx.fill();
+      ctx.fillStyle='#fff'; ctx.textAlign='center';
+      ctx.fillText(lbl, x+barW/2, by+10);
+    }
 
     // X label
-    ctx.fillStyle='#6b7280'; ctx.font='9px sans-serif'; ctx.textAlign='center';
-    ctx.fillText(SEM_LABELS[i], x+bW/2, h-PAD.b+13);
+    ctx.fillStyle='#6b7280'; ctx.font='10px -apple-system,sans-serif'; ctx.textAlign='center';
+    ctx.fillText(labels[i], x+barW/2, padT+cH+14);
   });
-})();
+
+  // Axis line
+  ctx.strokeStyle='#e5e7eb'; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(padL,padT); ctx.lineTo(padL,padT+cH); ctx.lineTo(padL+cW,padT+cH); ctx.stroke();
+}
+
+const SEM_C_ML = SEM_VASOS.map((_,i)=>MES_COLORS[MES_RANGES.findIndex(([a,b])=>i>=a&&i<b)]||'#94a3b8');
+const SEMS_ML  = SEM_LABELS.map(s=>s.replace(/^S/,'SEM '));
+function drawSemML(){ drawBar('cSem',{labels:SEMS_ML, values:SEM_VASOS, colors:SEM_C_ML, topLabels:SEM_PEDIDOS, min:0, height:260}); }
+drawSemML();
+window.addEventListener('resize', drawSemML);
 
 // ── CHART 2: DOW ──────────────────────────────────────
 // ── CHART 2: DOW ──────────────────────────────────────
